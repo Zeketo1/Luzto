@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+@media (min-width: 900px) {
+    .dude {
+        display: block;
+    }
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.3px);
+    -webkit-backdrop-filter: blur(2.3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 768px) {
+    .dealGrid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    content: "";
+}
+
+.product__shadow {
+    box-shadow: 12px 14px 18px rgba(128, 128, 128, 0.356);
+}
+
+.shape__grid {
+    /* display: grid; */
+    grid-template-columns: 55% 45%;
+}
+
+@media (min-width: 640px) {
+    .left__shape {
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    }
+}
