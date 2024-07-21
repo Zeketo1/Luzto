@@ -1,23 +1,46 @@
 import React from "react";
-import { BannerImg1, BannerImg2, BannerImg3, BannerImg4, bannerLogo } from "../..";
+import {
+    BannerImg1,
+    BannerImg2,
+    BannerImg3,
+    BannerImg4,
+    bannerLogo,
+} from "../..";
 import Button from "../../utils/Button";
+import { motion } from "framer-motion";
 
 const Banner = () => {
+    // const container = (x, delay) => ({
+    //     hidden: { x: x, opacity: 0 },
+    //     visible: {
+    //         x: 0,
+    //         opacity: 1,
+    //         transition: { duration: 0.5, delay: delay },
+    //     },
+    // });
 
     return (
         <div className="flex flex-col items-center w-full py-10 px-2 bg-white mb-5">
             <div className="gap-3 grid grid-cols-2 md:flex">
-                <img
+                <motion.img
+                    initial={{ rotate: -15, x: -100 }}
+                    animate={{ rotate: 0, x: 0 }}
+                    transition={{ duration: 0.7 }}
                     className="h-[350px] w-full sm:h-[550px] sm:w-full md:h-[600px] md:w-[400px]"
                     src={BannerImg1}
                     alt=""
                 />
 
                 <div className="flex flex-col justify-between gap-[10px]">
-                    <div
-                        className="rounded-[10px] bg-cover bg-center bg-no-repeat block sm:hidden w-full h-[50%] bg-phoneBg"
-                    ></div>
-                    <img className="hidden sm:block" src={BannerImg3} alt="" />
+                    <div className="rounded-[10px] bg-cover bg-center bg-no-repeat block sm:hidden w-full h-[50%] bg-phoneBg"></div>
+                    <motion.img
+                        className="hidden sm:block"
+                        initial={{ scale: 0.5 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.7 }}
+                        src={BannerImg3}
+                        alt=""
+                    />
                     <div className="glass rounded-[10px] p-5 flex flex-col items-center justify-end">
                         <div className="text-[30px] sm:text-[50px] font-mono">
                             ULTIMATE
@@ -27,9 +50,19 @@ const Banner = () => {
                         </div>
                         <Button text="SHOP NOW" />
                     </div>
-                    <img className="hidden sm:block" src={BannerImg4} alt="" />
+                    <motion.img
+                        className="hidden sm:block"
+                        initial={{ scale: 0.5 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.7 }}
+                        src={BannerImg4}
+                        alt=""
+                    />
                 </div>
-                <img
+                <motion.img
+                    initial={{ rotate: 15, x: 100 }}
+                    animate={{ rotate: 0, x: 0 }}
+                    transition={{ duration: 0.7 }}
                     className="hidden dude md:h-[600px] md:w-[400px]"
                     src={BannerImg2}
                     alt=""

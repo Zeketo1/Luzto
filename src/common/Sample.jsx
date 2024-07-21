@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { sampleIcons, sampleImg } from "..";
 
 const Sample = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false });
     return (
         <>
             <div className="bg-white flex flex-col gap-16 pb-5">
                 <div className="flex flex-col gap-5 sm:gap-0 sm:grid shape__grid sm:h-[430px] md:h-[450px] lg:h-[500px] bg-[#DADADA]">
-                    <div className="bg-[#F8F8F8] h-full w-full left__shape">
+                    <motion.div
+                        ref={ref}
+                        initial={{ x: -400 }}
+                        animate={isInView ? { x: 0 } : { x: -400 }}
+                        transition={{ duration: 0.7 }}
+                        className="bg-[#F8F8F8] h-full w-full left__shape"
+                    >
                         <img
                             src={sampleImg}
                             alt=""
                             className="sm:h-[430px] md:h-[450px] lg:h-[500px]"
                         />
-                    </div>
+                    </motion.div>
                     <div className="h-[420px] sm:h-full w-full right__shape pl-5 flex items-center">
                         <div className="flex flex-col gap-3 lg:gap-5">
                             <p className="opacity-80 text-[14px]">
@@ -48,8 +57,11 @@ const Sample = () => {
                     </div>
                 </div>
                 <div className="flex shadow-xl justify-around flex-wrap gap-10 py-5 md:py-10">
-                    {sampleIcons.map(({ icon, title, text }) => (
-                        <div className="flex items-center gap-2 md:gap-4">
+                    {sampleIcons.map(({ icon, title, text }, i) => (
+                        <div
+                            key={i}
+                            className="flex items-center gap-2 md:gap-4"
+                        >
                             <img
                                 src={icon}
                                 alt=""

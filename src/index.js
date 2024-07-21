@@ -34,19 +34,17 @@ import commentImg2 from "./assets/Homepage/Comments/img2.png";
 import commentImg3 from "./assets/Homepage/Comments/img3.png";
 import stars from "./assets/Homepage/Arrivals/stars.png";
 
-
 import subscribeImg1 from "./assets/Homepage/Subscribe/img1.png";
 import subscribeImg2 from "./assets/Homepage/Subscribe/img2.png";
 
-
 export const instagramImgs = [
-    instagramImg1,
-    instagramImg2,
-    instagramImg3,
-    instagramImg4,
-    instagramImg5,
-    instagramImg6,
-    instagramImg7,
+    { image: instagramImg1, value: 200, delay: 0 },
+    { image: instagramImg2, value: -200, delay: 0.5 },
+    { image: instagramImg3, value: 200, delay: 0 },
+    { image: instagramImg4, value: -200, delay: 0.6 },
+    { image: instagramImg5, value: 200, delay: 0 },
+    { image: instagramImg6, value: -200, delay: 0.7 },
+    { image: instagramImg7, value: 200, delay: 0 },
 ];
 
 export const sampleIcons = [
@@ -109,5 +107,5 @@ export const bannerLogo = [
 
 export const dealImgs = [deal1, deal2, deal3, deal4, deal5];
 
-export { BannerImg1, BannerImg2, BannerImg3, BannerImg4, sampleImg,  };
-export { subscribeImg1, subscribeImg2};
+export { BannerImg1, BannerImg2, BannerImg3, BannerImg4, sampleImg };
+export { subscribeImg1, subscribeImg2 };

@@ -22,7 +22,7 @@ const Footer = () => {
                     </h1>
                     <div className="flex gap-5">
                         {options.map((option, i) => (
-                            <i className="text-[14px] cursor-pointer">
+                            <i key={i} className="text-[14px] cursor-pointer">
                                 {option}
                             </i>
                         ))}

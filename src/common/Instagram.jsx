@@ -1,8 +1,20 @@
-import React from "react";
-
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { instagramImgs } from "..";
 
 const Instagram = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: false });
+
+    const container = (y, delay) => ({
+        hidden: { y: y, opacity: 0},
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { duration: 0.5, delay: delay },
+        },
+    });
+
     return (
         <>
             <div className="bg-white py-16 flex flex-col gap-7">
@@ -17,15 +29,22 @@ const Instagram = () => {
                     </p>
                 </div>
                 <div className="flex items-center justify-center w-full">
-                    {instagramImgs.map((item, i) => (
-                        <div className="flex justify-center">
+                    {instagramImgs.map(({ image, value, delay }, i) => (
+                        <motion.div
+                            ref={ref}
+                            initial="hidden"
+                            animate={isInView ? "visible" : "hidden"}
+                            variants={container(value, delay)}
+                            transition={{ duration: 0.7 }}
+                            key={i}
+                            className="flex justify-center"
+                        >
                             <img
-                                key={i}
-                                src={item}
+                                src={image}
                                 alt=""
                                 className="h-full w-[200px]"
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
