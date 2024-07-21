@@ -29,6 +29,16 @@ import instagramImg5 from "./assets/Homepage/Instagram/image5.png";
 import instagramImg6 from "./assets/Homepage/Instagram/image6.png";
 import instagramImg7 from "./assets/Homepage/Instagram/image7.png";
 
+import commentImg1 from "./assets/Homepage/Comments/img1.png";
+import commentImg2 from "./assets/Homepage/Comments/img2.png";
+import commentImg3 from "./assets/Homepage/Comments/img3.png";
+import stars from "./assets/Homepage/Arrivals/stars.png";
+
+
+import subscribeImg1 from "./assets/Homepage/Subscribe/img1.png";
+import subscribeImg2 from "./assets/Homepage/Subscribe/img2.png";
+
+
 export const instagramImgs = [
     instagramImg1,
     instagramImg2,
@@ -36,7 +46,7 @@ export const instagramImgs = [
     instagramImg4,
     instagramImg5,
     instagramImg6,
-    instagramImg7
+    instagramImg7,
 ];
 
 export const sampleIcons = [
@@ -62,6 +72,33 @@ export const sampleIcons = [
     },
 ];
 
+export const commentImgs = [
+    {
+        image: commentImg1,
+        name: "Suzan B.",
+        star: stars,
+        job: "Project Manager",
+        comment:
+            "“Items That I ordered were the best investment I ever made. I can't say enough about your quality service.”",
+    },
+    {
+        image: commentImg2,
+        name: "James K.",
+        star: stars,
+        job: "Programmer",
+        comment:
+            "“You won't regret it. I would like to personally thank you for your outstanding product. Absolutely wonderful!”",
+    },
+    {
+        image: commentImg3,
+        name: "Megen W.",
+        star: stars,
+        job: "UI Designer",
+        comment:
+            "“Just what I was looking for. Thank you for making it painless, pleasant and most of all hassle free! All products are great.”",
+    },
+];
+
 export const bannerLogo = [
     { logo: Logo1 },
     { logo: Logo2 },
@@ -72,4 +109,5 @@ export const bannerLogo = [
 
 export const dealImgs = [deal1, deal2, deal3, deal4, deal5];
 
-export { BannerImg1, BannerImg2, BannerImg3, BannerImg4, sampleImg };
+export { BannerImg1, BannerImg2, BannerImg3, BannerImg4, sampleImg,  };
+export { subscribeImg1, subscribeImg2};

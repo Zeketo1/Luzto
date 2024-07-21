@@ -41,9 +41,9 @@ const Sample = () => {
                             <p className="font-semibold">
                                 $100.<span className="text-[13px]">00</span>
                             </p>
-                            <p className="bg-black py-2 px-10 cursor-pointer rounded-md w-fit text-white text-[13px]">
+                            <button className="bg-black py-2 px-10 rounded-md w-fit text-white text-[13px]">
                                 Buy Now
-                            </p>
+                            </button>
                         </div>
                     </div>
                 </div>

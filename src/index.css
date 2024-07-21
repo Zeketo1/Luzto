@@ -44,3 +44,15 @@
         clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
     }
 }
+
+.border__radius {
+    border-radius: 45% 0 45% 0;
+}
+
+.input__shadow {
+    box-shadow: 0px 20px 20px rgba(128, 128, 128, 0.356);
+}
+
+.footer__top__border {
+    border-top: 1px rgba(0, 0, 0, 0.26) solid;
+}
