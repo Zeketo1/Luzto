@@ -4,7 +4,13 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                "phoneBg": "url('./src/assets/Homepage/Arrivals/img6.png')",
+                phoneBg: "url('./src/assets/Homepage/Arrivals/img6.png')",
+                signupBg: "url('./src/assets/Signup/testing1.jpg')",
+                loginBg: "url('./src/assets/Signup/testing3.jpg')",
+            },
+            fontFamily: {
+                poppins: "Poppins",
+                jalla: "Fjalla One",
             },
         },
     },

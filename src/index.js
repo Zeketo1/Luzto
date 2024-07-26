@@ -37,6 +37,8 @@ import stars from "./assets/Homepage/Arrivals/stars.png";
 import subscribeImg1 from "./assets/Homepage/Subscribe/img1.png";
 import subscribeImg2 from "./assets/Homepage/Subscribe/img2.png";
 
+import googleIcon from "./assets/Signup/google.png";
+
 export const instagramImgs = [
     { image: instagramImg1, value: 200, delay: 0 },
     { image: instagramImg2, value: -200, delay: 0.5 },
@@ -109,3 +111,4 @@ export const dealImgs = [deal1, deal2, deal3, deal4, deal5];
 
 export { BannerImg1, BannerImg2, BannerImg3, BannerImg4, sampleImg };
 export { subscribeImg1, subscribeImg2 };
+export { googleIcon };

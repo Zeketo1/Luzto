@@ -12,7 +12,7 @@ const Sample = () => {
                     <motion.div
                         ref={ref}
                         initial={{ x: -400 }}
-                        animate={isInView ? { x: 0 } : { x: -400 }}
+                        animate={isInView ? { x: 0 } : { x: -350 }}
                         transition={{ duration: 0.7 }}
                         className="bg-[#F8F8F8] h-full w-full left__shape"
                     >

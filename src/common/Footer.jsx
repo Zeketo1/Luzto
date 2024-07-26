@@ -12,7 +12,7 @@ const Footer = () => {
 
     return (
         <>
-            <div className="bg-white sm:pt-4 py-3 flex flex-col gap-3 footer__top__border">
+            <div className="static bottom-0 left-0 bg-white sm:pt-4 py-3 flex flex-col gap-3 footer__top__border ">
                 <h1 className="text-[30px] font-serif text-center sm:hidden">
                     Luzto
                 </h1>

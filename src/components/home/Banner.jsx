@@ -32,7 +32,12 @@ const Banner = () => {
                 />
 
                 <div className="flex flex-col justify-between gap-[10px]">
-                    <div className="rounded-[10px] bg-cover bg-center bg-no-repeat block sm:hidden w-full h-[50%] bg-phoneBg"></div>
+                    <motion.div
+                        initial={{ scale: 0.5 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.7 }}
+                        className="rounded-[10px] bg-cover bg-center bg-no-repeat block sm:hidden w-full h-[50%] bg-phoneBg"
+                    ></motion.div>
                     <motion.img
                         className="hidden sm:block"
                         initial={{ scale: 0.5 }}
@@ -51,10 +56,10 @@ const Banner = () => {
                         <Button text="SHOP NOW" />
                     </div>
                     <motion.img
-                        className="hidden sm:block"
                         initial={{ scale: 0.5 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.7 }}
+                        className="hidden sm:block"
                         src={BannerImg4}
                         alt=""
                     />
