@@ -3,18 +3,19 @@ import { LuzContext } from "../Context/LuzContextProvider";
 import { Link } from "react-router-dom";
 import { googleIcon } from "..";
 import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
-import { handleSignupForm } from "../firebase";
+import { handleSignupForm, signupWithGoogle } from "../firebase";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
     const ref = useRef(null);
     const ref2 = useRef(null);
 
-    const { setFooter, setLogsActive, setLogsStyle } = useContext(LuzContext);
+    const { setFooter, setLogsStyle, setNotInAuth } =
+        useContext(LuzContext);
 
     useEffect(() => {
-        setLogsActive(false);
         setLogsStyle(false);
+        setNotInAuth(true);
         setFooter(false);
         setInterval(() => {
             if (ref.current) {
@@ -38,6 +39,10 @@ const SignUp = () => {
         handleSignupForm(e, email, password);
         console.log(name, lastName, email, password, confirmPassword);
     };
+
+    const handleGooogle = async () => {
+        await signupWithGoogle();
+    }
 
     const [showPass, setShowPass] = useState(true);
 
@@ -148,7 +153,7 @@ const SignUp = () => {
                             Login
                         </Link>
                     </p>
-                    <div className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border">
+                    <div onClick={handleGooogle} className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border">
                         <img src={googleIcon} alt="" className="h-[20px]" />
                         <p className="text-[13px] font-semibold">
                             Sign up with Google

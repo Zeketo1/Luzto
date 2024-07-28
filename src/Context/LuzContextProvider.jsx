@@ -4,16 +4,16 @@ const LuzContext = createContext(null);
 
 const LuzContextProvider = ({ children }) => {
     const [footer, setFooter] = useState(true);
-    const [logsActive, setLogsActive] = useState(true);
     const [logsStyle, setLogsStyle] = useState(true);
+    const [notInAuth, setNotInAuth] = useState(false)
 
     return (
         <LuzContext.Provider
             value={{
-                setFooter,
+                notInAuth,
+                setNotInAuth,
                 footer,
-                logsActive,
-                setLogsActive,
+                setFooter,
                 logsStyle,
                 setLogsStyle,
             }}

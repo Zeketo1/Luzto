@@ -9,11 +9,11 @@ import Subscribe from "../common/Subscribe";
 import { LuzContext } from "../Context/LuzContextProvider";
 
 const Home = () => {
-    const { setLogsActive,setLogsStyle } = useContext(LuzContext);
+    const { setLogsStyle, setNotInAuth } = useContext(LuzContext);
 
     useEffect(() => {
-        setLogsStyle(true)
-        setLogsActive(true);
+        setLogsStyle(true);
+        setNotInAuth(false);
     }, []);
 
     return (

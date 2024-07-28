@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { createContext, useState, useContext, useEffect } from "react";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Home from "../pages/Home";
 import NavBar from "../common/NavBar";
 import SignUp from "../pages/SignUp";
@@ -10,9 +10,27 @@ import Footer from "../common/Footer";
 import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase";
 
 const PageRoutes = () => {
     const { footer } = useContext(LuzContext);
+    // const navigate = useNavigate("/");
+    // const [userActive, setUserActive] = useState(false)
+
+    // useEffect(() => {
+    //     onAuthStateChanged(auth, async (user) => {
+    //         if (user) {
+    //             console.log(user);
+    //             setUserActive(true)
+    //             // setUserLogged(true);
+    //             // useNavigate("/")
+    //             // console.log(userLogged);
+    //         }
+    //     });
+    // });
+
+    // {userActive && navigate()}
 
     return (
         <BrowserRouter>

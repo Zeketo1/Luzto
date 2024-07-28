@@ -7,94 +7,91 @@ import {
     signOut,
     GoogleAuthProvider,
     signInWithPopup,
-    signInWithRedirect,
-    onAuthStateChanged,
 } from "firebase/auth";
-
-import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
-    authDomain: "luzto-cc81f.firebaseapp.com",
-    projectId: "luzto-cc81f",
-    storageBucket: "luzto-cc81f.appspot.com",
-    messagingSenderId: "814455920745",
-    appId: "1:814455920745:web:e8385b20b81c12c3e76af8",
+    authDomain: "luzto-588ed.firebaseapp.com",
+    projectId: "luzto-588ed",
+    storageBucket: "luzto-588ed.appspot.com",
+    messagingSenderId: "321567600681",
+    appId: "1:321567600681:web:937bd4eff1b3a1f1332c38",
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const handleSignupForm = async (e, email, password) => {
-    e.preventDefault(); // Prevent the default form submission
+const showToast = (message, type) => {
+    toast[type](message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        icon: type === "success" ? "🎉" : "⚠️",
+        style: {
+            backgroundColor: type === "success" ? "#48bb78" : "#f56565",
+            color: "#fff",
+        },
+        className: `custom-toast-${type}`,
+        bodyClassName: `custom-toast-${type}-body`,
+    });
+};
 
+const handleSignupForm = async (e, email, password) => {
+    e.preventDefault();
     try {
         const userCredential = await createUserWithEmailAndPassword(
             auth,
             email,
             password
         );
-        // You can access user information from userCredential.user
-                
         console.log("User created:", userCredential.user);
+        showToast(
+            `Success! You have been signed in. Welcome, ${userCredential.user.email}!`,
+            "success"
+        );
     } catch (error) {
         console.error("Error signing up:", error.message);
-        // Optionally, handle the error in the UI, e.g., show an error message
+        showToast(`Action failed: ${error.message}`, "error");
     }
 };
 
 const handleLoginForm = async (e, email, password) => {
-    e.preventDefault(); // Prevent the default form submission
-
+    e.preventDefault();
     try {
         const userCredential = await signInWithEmailAndPassword(
             auth,
             email,
             password
         );
-        // You can access user information from userCredential.user
-        
-        console.log("User created:", userCredential.user);
-        toast.success(
-                `Success! You have been signed in. Welcome back, ${userCredential.user.email}!`,
-            {
-                position: "top-right",
-                autoClose: 5000, // 5 seconds
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                icon: "🎉", // Custom icon
-                style: {
-                    backgroundColor: "#48bb78", // Custom background color (green)
-                    color: "#fff", // Custom text color
-                },
-                className: "custom-toast-success", // Custom class for further styling
-                bodyClassName: "custom-toast-success-body", // Custom class for body styling
-            }
+        console.log("User signed in:", userCredential.user);
+        showToast(
+            `Success! Welcome back, ${userCredential.user.email}!`,
+            "success"
         );
     } catch (error) {
-        console.error("Error Signing in:", error.message);
-        toast.error(`Action failed: ${error.message}`, {
-            position: "top-right",
-            autoClose: 4500, // 8 seconds
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            icon: "⚠️", // Custom icon
-            style: {
-                backgroundColor: "#f56565", // Custom background color
-                color: "#fff", // Custom text color
-            },
-            className: "custom-toast", // Custom class for further styling
-            bodyClassName: "custom-toast-body", // Custom class for body styling
-        });
+        console.error("Error signing in:", error.message);
+        showToast(`Action failed: ${error.message}`, "error");
     }
 };
 
-export { handleSignupForm, handleLoginForm };
+const signupWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+    signInWithPopup(auth, provider).catch((error) => {
+        console.error("Error signing in with Google:", error.message);
+        showToast(`Google sign-in failed: ${error.message}`, "error");
+    });
+};
+
+const logout = () => {
+    signOut(auth)
+        .then(() => console.log("User signed out"))
+        .catch((error) => console.error("Error signing out:", error.message));
+};
+
+export { handleSignupForm, handleLoginForm, signupWithGoogle, auth, logout };

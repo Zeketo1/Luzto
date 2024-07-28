@@ -21,7 +21,6 @@ const Arrivals = () => {
 
     const [categorySelector, setCategorySelector] =
         useState(arrivalsMenFashion);
-    console.log(categorySelector);
 
     return (
         <>

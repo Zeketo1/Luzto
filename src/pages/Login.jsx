@@ -1,21 +1,22 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { LuzContext } from "../Context/LuzContextProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { googleIcon } from "..";
 import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { handleLoginForm } from "../firebase";
+import { auth, handleLoginForm, signupWithGoogle } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
     const ref = useRef(null);
     const ref2 = useRef(null);
 
-    const { setFooter, setLogsActive, setLogsStyle } = useContext(LuzContext);
+    const { setFooter, setLogsStyle, setNotInAuth } = useContext(LuzContext);
 
     useEffect(() => {
         setLogsStyle(false);
-        setLogsActive(false);
         setFooter(false);
+        setNotInAuth(true);
         setInterval(() => {
             if (ref.current) {
                 ref.current.classList.add("translate-x-[100%]");
@@ -26,13 +27,39 @@ const Login = () => {
         }, 100);
     }, []);
 
+    const [userActive, setUserActive] = useState(false);
+
+    const navigate = useNavigate("/");
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log(user);
+                 setInterval(() => {
+                     navigate("/");
+                 }, 2000);
+                setUserActive(true);
+                console.log(userActive);
+            } else {
+                setUserActive(false);
+                console.log(userActive);
+            }
+        });
+    }, [userActive]);
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
+        setEmail("");
+        setPassword("");
         e.preventDefault();
         handleLoginForm(e, email, password);
         console.log(email, password);
+    };
+
+    const handleGooogle = async () => {
+        await signupWithGoogle();
     };
 
     const [showPass, setShowPass] = useState(true);
@@ -59,6 +86,7 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="Email Address"
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full p-2 placeholder:text-[13px] placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#fff] border-b"
                         />
@@ -66,6 +94,7 @@ const Login = () => {
                             <input
                                 type={showPass ? "password" : "text"}
                                 placeholder="Password"
+                                value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full p-2 placeholder:text-[13px] placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#fff] border-b"
                             />
@@ -94,7 +123,10 @@ const Login = () => {
                     >
                         Register NOW
                     </Link>
-                    <div className="flex cursor-pointer items-center gap-2 py-2 px-4 rounded-md border-[#8080805c] border">
+                    <div
+                        onClick={handleGooogle}
+                        className="flex cursor-pointer items-center gap-2 py-2 px-4 rounded-md border-[#8080805c] border"
+                    >
                         <img src={googleIcon} alt="" className="h-[20px]" />
                         <p className="text-[13px] font-semibold">
                             Login with Google
@@ -116,6 +148,7 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="Email Address"
+                            value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full text-white sm:text-black p-2 placeholder:text-[13px] placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#fff] border-b"
                         />
@@ -123,6 +156,7 @@ const Login = () => {
                             <input
                                 type={showPass ? "password" : "text"}
                                 placeholder="Password"
+                                value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="w-full text-white sm:text-black p-2 placeholder:text-[13px] mb-5 sm:mb-0 placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#fff] border-b"
                             />
@@ -151,7 +185,10 @@ const Login = () => {
                     >
                         Register NOW
                     </Link>
-                    <div className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border">
+                    <div
+                        onClick={handleGooogle}
+                        className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border"
+                    >
                         <img src={googleIcon} alt="" className="h-[20px]" />
                         <p className="text-[13px] font-semibold">
                             Login with Google
