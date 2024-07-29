@@ -5,11 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (min-width: 900px) {
-    .dude {
-        display: block;
-    }
-}
 
 .glass {
     background: rgba(255, 255, 255, 0.09);
@@ -19,12 +14,6 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-@media (min-width: 768px) {
-    .dealGrid {
-        display: grid;
-        grid-template-columns: 40% 60%;
-    }
-}
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -40,19 +29,6 @@
     grid-template-columns: 55% 45%;
 }
 
-@media (min-width: 640px) {
-    .left__shape {
-        clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-    }
-
-    .glassLog {
-        background: rgba(0, 0, 0, 0.1);
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(2.3px);
-        -webkit-backdrop-filter: blur(2.3px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-}
 
 .border__radius {
     border-radius: 45% 0 45% 0;
@@ -64,4 +40,40 @@
 
 .footer__top__border {
     border-top: 1px rgba(0, 0, 0, 0.26) solid;
+}
+
+/* CUSTOM MEDIAS */
+
+@media (min-width: 640px) {
+    .left__shape {
+        clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+    }
+    
+    .glassLog {
+        background: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2.3px);
+        -webkit-backdrop-filter: blur(2.3px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+}
+
+@media (min-width: 768px) {
+    .dealGrid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+}
+
+@media (min-width: 900px) {
+    .dude {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fashion__products__grid {
+        display: grid;
+        grid-template-columns: 20% 80%;
+    }
 }

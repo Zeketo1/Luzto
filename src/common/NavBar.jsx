@@ -7,7 +7,19 @@ import { auth, logout } from "../firebase";
 import { BiLogOut } from "react-icons/bi";
 
 const NavBar = () => {
-    const options = ["Home", "Deals", "New Arrivals", "Packages"];
+    const options = [
+        { text: "Home", location: "0" },
+        { text: "Deals", location: "670" },
+        { text: "New Arrivals", location: "1210" },
+        { text: "Packages", location: "2660" },
+    ];
+
+    const activeOptions = [
+        { text: "Home", route: "/" },
+        { text: "Shop", route: "/shop" },
+        { text: "Products", route: "/" },
+        { text: "Pages", route: "/" },
+    ];
     const { logsStyle, notInAuth } = useContext(LuzContext);
 
     const [userActive, setUserActive] = useState(false);
@@ -22,7 +34,6 @@ const NavBar = () => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 setUserActive(true);
-                console.log(userActive, user);
                 if (user.photoURL) {
                     setProfile(user.photoURL);
                 } else if (user.email) {
@@ -31,12 +42,16 @@ const NavBar = () => {
                 }
             } else {
                 setUserActive(false);
-                console.log(userActive);
             }
         });
     }, [userActive, profile]);
 
-    console.log(profile);
+    const [activeOption, setActiveOption] = useState(0);
+    const position = (pos) => {
+        window.scrollTo({ top: pos, behavior: "smooth" });
+    };
+
+    console.log(activeOption);
 
     return (
         <>
@@ -46,13 +61,40 @@ const NavBar = () => {
                 } py-1 sticky top-0 right-0`}
             >
                 <h1 className="text-[30px] font-serif text-black">Luzto</h1>
-                {userActive && (
-                    <div className="flex min-[360px]:hidden sm:flex sm:gap-4 md:gap-8 ">
-                        {options.map((item, i) => (
-                            <span key={i}>{item}</span>
-                        ))}
-                    </div>
-                )}
+                {!notInAuth &&
+                    (userActive ? (
+                        <div className="flex min-[360px]:hidden sm:flex sm:gap-4 md:gap-8 ">
+                            {activeOptions.map(({ text, route }, i) => (
+                                <Link
+                                    to={route}
+                                    key={i}
+                                    onClick={() => setActiveOption(i)}
+                                    className={`cursor-pointer sm:text-[14px] md:text-[16px] ${
+                                        i === activeOption ? "underline" : ""
+                                    }`}
+                                >
+                                    {text}
+                                </Link>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="flex min-[360px]:hidden sm:flex sm:gap-4 md:gap-8 ">
+                            {options.map(({ text, location }, i) => (
+                                <span
+                                    key={i}
+                                    onClick={() => {
+                                        setActiveOption(i);
+                                        position(location);
+                                    }}
+                                    className={`cursor-pointer sm:text-[14px] md:text-[16px] ${
+                                        i === activeOption ? "underline" : ""
+                                    }`}
+                                >
+                                    {text}
+                                </span>
+                            ))}
+                        </div>
+                    ))}
 
                 {!userActive ? (
                     <div
@@ -83,7 +125,9 @@ const NavBar = () => {
                         <BiLogOut onClick={handleSignOut} />
                         {profile.length === 0 ? (
                             <div className="h-[35px] w-[35px] rounded-[50%] bg-blue-700 text-white flex items-center justify-center">
-                                <div className="text-[20px]">{eProfile}</div>
+                                <div className="text-[20px] -translate-y-[2px]">
+                                    {eProfile}
+                                </div>
                             </div>
                         ) : (
                             <img
