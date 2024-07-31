@@ -11,8 +11,8 @@ import Logo5 from "./assets/Homepage/Banner/logo5.png";
 
 import deal1 from "./assets/Homepage/Deals/img1.png";
 import deal2 from "./assets/Homepage/Deals/img2.png";
-import deal3 from "./assets/Homepage/Deals/img3.png";
-import deal4 from "./assets/Homepage/Deals/img4.png";
+import deal3 from "./assets/Homepage/Deals/img3.jpg";
+import deal4 from "./assets/Homepage/Deals/img4.jpg";
 import deal5 from "./assets/Homepage/Deals/img5.png";
 
 import sampleImg from "./assets/Homepage/Sample/image.png";
@@ -38,6 +38,7 @@ import subscribeImg1 from "./assets/Homepage/Subscribe/img1.png";
 import subscribeImg2 from "./assets/Homepage/Subscribe/img2.png";
 
 import googleIcon from "./assets/Signup/google.png";
+
 
 export const instagramImgs = [
     { image: instagramImg1, value: 200, delay: 0 },
@@ -106,6 +107,7 @@ export const bannerLogo = [
     { logo: Logo4 },
     { logo: Logo5 },
 ];
+
 
 export const dealImgs = [deal1, deal2, deal3, deal4, deal5];
 

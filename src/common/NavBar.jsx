@@ -5,6 +5,8 @@ import { BsArrowLeft } from "react-icons/bs";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, logout } from "../firebase";
 import { BiLogOut } from "react-icons/bi";
+import { RiCloseFill } from "react-icons/ri";
+import { CiMenuFries } from "react-icons/ci";
 
 const NavBar = () => {
     const options = [
@@ -37,7 +39,7 @@ const NavBar = () => {
                 if (user.photoURL) {
                     setProfile(user.photoURL);
                 } else if (user.email) {
-                    const emailSlice = user.email.slice(0, 1);
+                    const emailSlice = user.email.slice(0, 1).toUpperCase();
                     setEProfile(emailSlice);
                 }
             } else {
@@ -51,7 +53,10 @@ const NavBar = () => {
         window.scrollTo({ top: pos, behavior: "smooth" });
     };
 
-    console.log(activeOption);
+    // console.log(activeOption);
+    console.log(profile);
+
+    const [isOpen, setIsopen] = useState(false);
 
     return (
         <>
@@ -122,19 +127,52 @@ const NavBar = () => {
                     </div>
                 ) : (
                     <div className="flex gap-5 items-center">
-                        <BiLogOut onClick={handleSignOut} />
+                        <BiLogOut
+                            className="hidden sm:block"
+                            onClick={handleSignOut}
+                        />
                         {profile.length === 0 ? (
                             <div className="h-[35px] w-[35px] rounded-[50%] bg-blue-700 text-white flex items-center justify-center">
-                                <div className="text-[20px] -translate-y-[2px]">
+                                <div className="text-[20px] -translate-y-[1px]">
                                     {eProfile}
                                 </div>
                             </div>
                         ) : (
-                            <img
-                                src={profile}
-                                alt=""
-                                className="h-[35px] w-[35px] rounded-[50%]"
-                            />
+                            <div className="flex gap-2 items-center">
+                                <img
+                                    src={profile}
+                                    alt=""
+                                    className="h-[35px] w-[35px] rounded-[50%]"
+                                />
+                                <button
+                                    className="block sm:hidden font-bold text-lg"
+                                    onClick={() => setIsopen(!isOpen)}
+                                >
+                                    {isOpen ? <RiCloseFill /> : <CiMenuFries />}
+                                </button>
+                                <div
+                                    className={`absolute ${
+                                        isOpen ? "flex" : "hidden"
+                                    }  w-[12rem] top-20 flex flex-col justify-center mobile_nav_bar rounded-sm shadow-xl bg-white sm:hidden z-30 h-max right-0`}
+                                >
+                                    {activeOptions.map(({ text, route }, i) => (
+                                        <Link
+                                            to={route}
+                                            key={i}
+                                            onClick={() => setActiveOption(i)}
+                                            className={`text-center py-2 ${i > 0 && "border-t-2"}`}
+                                        >
+                                            {text}
+                                        </Link>
+                                    ))}
+                                    <div onClick={handleSignOut} className="cursor-pointer flex py-2 gap-1 items-center justify-center border-t-2 w-full">
+                                        <p>Sign Out</p>
+                                        <BiLogOut
+                                            className="block"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         )}
                     </div>
                 )}

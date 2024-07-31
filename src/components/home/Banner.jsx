@@ -10,14 +10,6 @@ import Button from "../../utils/Button";
 import { motion } from "framer-motion";
 
 const Banner = () => {
-    // const container = (x, delay) => ({
-    //     hidden: { x: x, opacity: 0 },
-    //     visible: {
-    //         x: 0,
-    //         opacity: 1,
-    //         transition: { duration: 0.5, delay: delay },
-    //     },
-    // });
 
     return (
         <div className="flex flex-col items-center w-full py-10 px-2 bg-white mb-5">
@@ -26,7 +18,7 @@ const Banner = () => {
                     initial={{ rotate: -15, x: -100 }}
                     animate={{ rotate: 0, x: 0 }}
                     transition={{ duration: 0.7 }}
-                    className="h-[350px] w-full sm:h-[550px] sm:w-full md:h-[600px] md:w-[400px]"
+                    className="h-[320px] w-full sm:h-[550px] rounded-[10px] sm:w-full md:h-[600px] md:w-[400px]"
                     src={BannerImg1}
                     alt=""
                 />
@@ -68,7 +60,7 @@ const Banner = () => {
                     initial={{ rotate: 15, x: 100 }}
                     animate={{ rotate: 0, x: 0 }}
                     transition={{ duration: 0.7 }}
-                    className="hidden dude md:h-[600px] md:w-[400px]"
+                    className="hidden dude md:h-[600px] md:w-[400px] rounded-[10px]"
                     src={BannerImg2}
                     alt=""
                 />

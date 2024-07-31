@@ -32,6 +32,7 @@ const Home = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
+        window.scrollTo({ top: 0, behavior: "smooth" });
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
@@ -41,7 +42,7 @@ const Home = () => {
         <div className="bg-[#f5f5f5] font-poppins">
             {scrollPosition > 800 && (
                 <div
-                    className="fixed bottom-[50px] right-[50px] bg-black rounded-[50%] p-1"
+                    className="fixed bottom-[50px] right-[50px] bg-black rounded-[50%] p-1 z-[100]"
                     onClick={position}
                 >
                     <FaArrowUp className="text-[25px] text-white"/>

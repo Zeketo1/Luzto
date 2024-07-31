@@ -21,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const showToast = (message, type) => {
+export const showToast = (message, type) => {
     toast[type](message, {
         position: "top-right",
         autoClose: 5000,

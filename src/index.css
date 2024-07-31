@@ -69,11 +69,41 @@
     .dude {
         display: block;
     }
-}
-
-@media (min-width: 1024px) {
+    
     .fashion__products__grid {
         display: grid;
         grid-template-columns: 20% 80%;
+        gap: 50px;
     }
+}
+
+@media (max-width: 1000px) {
+    .fashion__products__grid {
+        display: flex;
+        gap: 0px;
+    }
+
+    .filter__display {
+        display: none;
+    }
+}
+
+.mobile_nav_bar {
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.scroll_bar_hidden::-webkit-scrollbar {
+  display: none;
 }

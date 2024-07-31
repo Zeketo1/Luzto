@@ -37,7 +37,7 @@ const Login = () => {
                 console.log(user);
                  setInterval(() => {
                      navigate("/");
-                 }, 2000);
+                 }, 1000);
                 setUserActive(true);
                 console.log(userActive);
             } else {

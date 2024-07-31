@@ -1,8 +1,43 @@
-import React from "react";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import React, { useEffect, useState } from "react";
+import { MdArrowDropDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { fashionImgs } from "./fashion";
 
 const Fashion = () => {
+    // Fashion
+    const fashionImgsSlice1 = fashionImgs.slice(0, 8);
+    const fashionImgsSlice2 = fashionImgs.slice(8, 16);
+    const fashionImgsSlice3 = fashionImgs.slice(16, 24);
+
+    const mapFashionOption = [
+        fashionImgsSlice1,
+        fashionImgsSlice2,
+        fashionImgsSlice3,
+    ];
+
+    // Price
+    const [fashionImgsPrice, setFashionImgsPrice] = useState([]);
+    const priceImgsSlice1 = fashionImgsPrice.slice(0, 8);
+    const priceImgsSlice2 = fashionImgsPrice.slice(8, 16);
+
+    const priceImgsSlice3 = fashionImgsPrice.slice(16, 24);
+    const mapPriceOption = [priceImgsSlice1, priceImgsSlice2, priceImgsSlice3];
+
+    const fashionImgsPriceFunction = (price, price2) => {
+        const answer = fashionImgs.filter(
+            (item) => item.price > price && item.price <= price2
+        );
+        setFashionImgsPrice(answer);
+    };
+
+    // NavBTN
+    const numNext = [1, 2, 3];
+    const [numClicked, setNumClicked] = useState(0);
+    const [condition, setCondition] = useState(false);
+    const itemsToRender = condition
+        ? mapPriceOption[numClicked]
+        : mapFashionOption[numClicked];
+
     return (
         <>
             <div className="py-10">
@@ -14,12 +49,14 @@ const Fashion = () => {
                     <MdKeyboardArrowRight />
                     <p>Fashion</p>
                 </div>
-                <div className="fashion__products__grid px-20">
-                    <div className="flex flex-col gap-4">
-                        <h3 className="text-[20px] font-semibold">Filters</h3>
+                <h3 className="text-[20px] font-semibold sm:px-5 md:px-10 xl:px-200 mb-3">
+                    Filters
+                </h3>
+                <div className="fashion__products__grid sm:px-2 md:px-5 xl:px-20">
+                    <div className="flex flex-col gap-4 filter__display">
                         <div className="flex flex-col gap-3">
                             <p>Size:</p>
-                            <div className="grid grid-cols-3 w-[40%] gap-3 opacity-70">
+                            <div className="flex flex-wrap gap-3 opacity-70">
                                 <div className="h-[30px] flex items-center justify-center w-[30px] border border-gray-700 shadow-md">
                                     <p>S</p>
                                 </div>
@@ -34,9 +71,9 @@ const Fashion = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-3">
+                        {/* <div className="flex flex-col gap-3">
                             <p>Color:</p>
-                            <div className="grid grid-cols-7 gap-3 opacity-70">
+                            <div className="flex flex-wrap gap-3 opacity-70">
                                 <div className="h-[30px] w-[30px] rounded-[50%] cursor-pointer bg-[#FF6C6C]"></div>
                                 <div className="h-[30px] w-[30px] rounded-[50%] cursor-pointer bg-[#FF7629]"></div>
                                 <div className="h-[30px] w-[30px] rounded-[50%] cursor-pointer bg-[#FFF06C]"></div>
@@ -52,14 +89,26 @@ const Fashion = () => {
                                 <div className="h-[30px] w-[30px] rounded-[50%] cursor-pointer bg-[#FC6CFF]"></div>
                                 <div className="h-[30px] w-[30px] rounded-[50%] cursor-pointer bg-[#FF6C6C]"></div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="flex flex-col gap-3">
                             <p>Prices:</p>
                             <div>
-                                <div className="tracking-tight text-[18px] opacity-70">
+                                <div
+                                    onClick={() => {
+                                        fashionImgsPriceFunction(0, 50);
+                                        setCondition(true);
+                                    }}
+                                    className="tracking-tight text-[18px] opacity-70 cursor-pointer"
+                                >
                                     $0-$50
                                 </div>
-                                <div className="tracking-tight text-[18px] opacity-70">
+                                <div
+                                    onClick={() => {
+                                        fashionImgsPriceFunction(50, 100);
+                                        setCondition(true);
+                                    }}
+                                    className="tracking-tight text-[18px] opacity-70 cursor-pointer"
+                                >
                                     $50-$100
                                 </div>
                                 <div className="tracking-tight text-[18px] opacity-70">
@@ -110,7 +159,49 @@ const Fashion = () => {
                             </div>
                         </div>
                     </div>
-                    <div></div>
+                    <div className="flex flex-col w-full">
+                        <div className="flex items-center cursor-pointer mb-2">
+                            <div>Best Selling </div>
+                            <MdArrowDropDown />
+                        </div>
+                        <div className="flex flex-col items-center">
+                            <div className="flex flex-wrap justify-center w-full gap-5">
+                                {itemsToRender.map(
+                                    ({ img, text, price }, i) => (
+                                        <div
+                                            key={i}
+                                            className="flex flex-col gap-2"
+                                        >
+                                            <img
+                                                src={img}
+                                                alt=""
+                                                className="h-[250px] w-[200px] sm:h-[300px] sm:w-[240px] xl:h-[270px] xl:w-[230px]"
+                                            />
+                                            <div>
+                                                <p className="font-semibold">
+                                                    {text}
+                                                </p>
+                                                <p className="opacity-80">
+                                                    ${price}.00
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                                )}
+                            </div>
+                            <div className="flex gap-2 mt-4">
+                                {numNext.map((num, i) => (
+                                    <p
+                                        onClick={() => setNumClicked(i)}
+                                        key={i}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        {num}
+                                    </p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

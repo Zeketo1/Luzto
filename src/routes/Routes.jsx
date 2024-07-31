@@ -18,7 +18,7 @@ const PageRoutes = () => {
     const { footer } = useContext(LuzContext);
     const [userActive, setUserActive] = useState();
 
-     useEffect(() => {
+    useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 setUserActive(true);
@@ -28,6 +28,10 @@ const PageRoutes = () => {
         });
     }, [userActive]);
 
+    console.log(userActive);
+
+    console.log(footer);
+
     return (
         <BrowserRouter>
             <NavBar />
@@ -36,7 +40,7 @@ const PageRoutes = () => {
                 <Route path="/" element={<Home />} />
                 {!userActive && <Route path="/signup" element={<SignUp />} />}
                 {!userActive && <Route path="/login" element={<Login />} />}
-                <Route path="/shop" element={<Shop />} />
+                {userActive && <Route path="/shop" element={<Shop />} />}
                 <Route
                     path="/stars"
                     element={<ShootingStarsAndStarsBackgroundDemo />}

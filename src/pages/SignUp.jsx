@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { LuzContext } from "../Context/LuzContextProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { googleIcon } from "..";
 import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
-import { handleSignupForm, signupWithGoogle } from "../firebase";
+import {
+    auth,
+    handleSignupForm,
+    showToast,
+    signupWithGoogle,
+} from "../firebase";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { onAuthStateChanged } from "firebase/auth";
 
 const SignUp = () => {
     const ref = useRef(null);
     const ref2 = useRef(null);
+    const ref3 = useRef(null);
 
-    const { setFooter, setLogsStyle, setNotInAuth } =
-        useContext(LuzContext);
+    const { setFooter, setLogsStyle, setNotInAuth } = useContext(LuzContext);
 
     useEffect(() => {
         setLogsStyle(false);
@@ -36,17 +42,52 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleSignupForm(e, email, password);
+        if (password !== confirmPassword) {
+            ref3.current.classList.add(
+                "border",
+                "border-b-[#ff0000]",
+                "border-b-2"
+            );
+            showToast("Password doesn't match", "error");
+        } else {
+            setName("");
+            setLastName("");
+            setEmail("");
+            setPassword("");
+            setNumber("");
+            setConfirmPassword("");
+            handleSignupForm(e, email, password);
+        }
         console.log(name, lastName, email, password, confirmPassword);
     };
 
     const handleGooogle = async () => {
         await signupWithGoogle();
-    }
+    };
 
     const [showPass, setShowPass] = useState(true);
 
     const [showPass2, setShowPass2] = useState(true);
+
+    const [userActive, setUserActive] = useState(false);
+
+    const navigate = useNavigate("/");
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                console.log(user);
+                setInterval(() => {
+                    navigate("/");
+                }, 1000);
+                setUserActive(true);
+                console.log(userActive);
+            } else {
+                setUserActive(false);
+                console.log(userActive);
+            }
+        });
+    }, [userActive]);
 
     return (
         <div className="lg:grid lg:grid-cols-2 w-full sm:h-[92.15vh] font-poppins">
@@ -67,12 +108,14 @@ const SignUp = () => {
                         <div className="flex w-full sm:gap-10">
                             <input
                                 type="text"
+                                value={name}
                                 placeholder="First Name"
                                 onChange={(e) => setName(e.target.value)}
                                 className="w-[50%] p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <input
                                 type="text"
+                                value={lastName}
                                 placeholder="Last Name"
                                 onChange={(e) => setLastName(e.target.value)}
                                 className="w-[50%] p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
@@ -81,12 +124,14 @@ const SignUp = () => {
                         <div className="flex w-full sm:gap-10">
                             <input
                                 type="email"
+                                value={email}
                                 placeholder="Email"
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="w-[50%] p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <input
                                 type="text"
+                                value={number}
                                 placeholder="Phone Number"
                                 onChange={(e) => setNumber(e.target.value)}
                                 className="w-[50%] p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
@@ -97,6 +142,7 @@ const SignUp = () => {
                                 <input
                                     type={showPass ? "password" : "text"}
                                     placeholder="Password"
+                                    value={password}
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
@@ -116,6 +162,8 @@ const SignUp = () => {
                             </div>
                             <div className="flex relative w-full">
                                 <input
+                                    ref={ref3}
+                                    value={confirmPassword}
                                     type={showPass2 ? "password" : "text"}
                                     placeholder="Confirm Password"
                                     onChange={(e) =>
@@ -153,7 +201,10 @@ const SignUp = () => {
                             Login
                         </Link>
                     </p>
-                    <div onClick={handleGooogle} className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border">
+                    <div
+                        onClick={handleGooogle}
+                        className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border"
+                    >
                         <img src={googleIcon} alt="" className="h-[20px]" />
                         <p className="text-[13px] font-semibold">
                             Sign up with Google
@@ -178,30 +229,35 @@ const SignUp = () => {
                         <div className="flex w-full gap-5 flex-col sm:grid sm:grid-cols-2 sm:gap-10">
                             <input
                                 type="text"
+                                value={name}
                                 placeholder="First Name"
                                 onChange={(e) => setName(e.target.value)}
                                 className="p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <input
                                 type="text"
+                                value={lastName}
                                 placeholder="Last Name"
-                                onChange={(e) => setName(e.target.value)}
+                                onChange={(e) => setLastName(e.target.value)}
                                 className="p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <input
                                 type="email"
+                                value={email}
                                 placeholder="Email Address"
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <input
                                 type="text"
+                                value={number}
                                 placeholder="Phone Number"
                                 onChange={(e) => setNumber(e.target.value)}
                                 className="p-2 placeholder:text-[13px] text-white placeholder-white placeholder:font-semibold outline-0 bg-transparent border-[#755e5e71] border-b-2"
                             />
                             <div className="flex relative w-full">
                                 <input
+                                    value={password}
                                     type={showPass ? "password" : "text"}
                                     placeholder="Password"
                                     onChange={(e) =>
@@ -224,6 +280,8 @@ const SignUp = () => {
 
                             <div className="flex relative w-full">
                                 <input
+                                    ref={ref3}
+                                    value={confirmPassword}
                                     type={showPass2 ? "password" : "text"}
                                     placeholder="Confirm Password"
                                     onChange={(e) =>
