@@ -8,20 +8,30 @@ const Fashion = () => {
     const fashionImgsSlice1 = fashionImgs.slice(0, 8);
     const fashionImgsSlice2 = fashionImgs.slice(8, 16);
     const fashionImgsSlice3 = fashionImgs.slice(16, 24);
+    const fashionImgsSlice4 = fashionImgs.slice(24, 32);
+    const fashionImgsSlice5 = fashionImgs.slice(32, 40);
 
     const mapFashionOption = [
         fashionImgsSlice1,
         fashionImgsSlice2,
         fashionImgsSlice3,
+        fashionImgsSlice4,
+        fashionImgsSlice5,
     ];
 
     // Price
     const [fashionImgsPrice, setFashionImgsPrice] = useState([]);
-    const priceImgsSlice1 = fashionImgsPrice.slice(0, 8);
-    const priceImgsSlice2 = fashionImgsPrice.slice(8, 16);
+    const priceImgsSlice1 = fashionImgsPrice.slice(0, 6);
+    const priceImgsSlice2 = fashionImgsPrice.slice(6, 12);
+    const priceImgsSlice3 = fashionImgsPrice.slice(12, 18);
+    const priceImgsSlice4 = fashionImgsPrice.slice(18, 24);
 
-    const priceImgsSlice3 = fashionImgsPrice.slice(16, 24);
-    const mapPriceOption = [priceImgsSlice1, priceImgsSlice2, priceImgsSlice3];
+    const mapPriceOption = [
+        priceImgsSlice1,
+        priceImgsSlice2,
+        priceImgsSlice3,
+        priceImgsSlice4,
+    ];
 
     const fashionImgsPriceFunction = (price, price2) => {
         const answer = fashionImgs.filter(
@@ -30,13 +40,48 @@ const Fashion = () => {
         setFashionImgsPrice(answer);
     };
 
+    // Tags
+    const [fashionImgsTags, setFashionImgsTags] = useState([]);
+    const tagsImgsSlice1 = fashionImgsTags.slice(0, 6);
+    const tagsImgsSlice2 = fashionImgsTags.slice(6, 12);
+    const tagsImgsSlice3 = fashionImgsTags.slice(12, 18);
+    const tagsImgsSlice4 = fashionImgsTags.slice(18, 24);
+
+    const mapTagsOption = [
+        tagsImgsSlice1,
+        tagsImgsSlice2,
+        tagsImgsSlice3,
+        tagsImgsSlice4,
+    ];
+
+    const fashionImgsTagsFunction = (tag) => {
+        const answer = fashionImgs.filter((item) => item.Brand === tag);
+        console.log(tag);
+        setFashionImgsTags(answer);
+    };
+
+    // console.log(fashionImgsTags);
+
     // NavBTN
-    const numNext = [1, 2, 3];
+
     const [numClicked, setNumClicked] = useState(0);
+    const [numClicked2, setNumClicked2] = useState(0);
     const [condition, setCondition] = useState(false);
+    const [condition2, setCondition2] = useState(true);
+
+    // Filters -_-
+
+    const filterRender = condition2
+        ? mapPriceOption[numClicked2]
+        : mapTagsOption[numClicked2];
+
+    const filterNav = condition2 ? fashionImgsPrice : fashionImgsTags;
+
     const itemsToRender = condition
-        ? mapPriceOption[numClicked]
+        ? filterRender
         : mapFashionOption[numClicked];
+
+    console.log(filterNav.length);
 
     return (
         <>
@@ -97,6 +142,7 @@ const Fashion = () => {
                                     onClick={() => {
                                         fashionImgsPriceFunction(0, 50);
                                         setCondition(true);
+                                        setCondition2(true);
                                     }}
                                     className="tracking-tight text-[18px] opacity-70 cursor-pointer"
                                 >
@@ -106,28 +152,77 @@ const Fashion = () => {
                                     onClick={() => {
                                         fashionImgsPriceFunction(50, 100);
                                         setCondition(true);
+                                        setCondition2(true);
                                     }}
                                     className="tracking-tight text-[18px] opacity-70 cursor-pointer"
                                 >
                                     $50-$100
                                 </div>
-                                <div className="tracking-tight text-[18px] opacity-70">
+                                <div
+                                    onClick={() => {
+                                        fashionImgsPriceFunction(100, 150);
+                                        setCondition(true);
+                                        setCondition2(true);
+                                    }}
+                                    className="tracking-tight text-[18px] opacity-70 cursor-pointer"
+                                >
                                     $100-$150
                                 </div>
-                                <div className="tracking-tight text-[18px] opacity-70">
+                                <div
+                                    onClick={() => {
+                                        fashionImgsPriceFunction(150, 200);
+                                        setCondition(true);
+                                        setCondition2(true);
+                                    }}
+                                    className="tracking-tight text-[18px] opacity-70 cursor-pointer"
+                                >
                                     $150-$200
                                 </div>
-                                <div className="tracking-tight text-[18px] opacity-70">
-                                    $300-$400
+                                <div
+                                    onClick={() => {
+                                        fashionImgsPriceFunction(200, 10000);
+                                        setCondition(true);
+                                        setCondition2(true);
+                                    }}
+                                    className="tracking-tight text-[18px] opacity-70 cursor-pointer"
+                                >
+                                    $200- Above
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col gap-3">
                             <p>Brands:</p>
                             <div className="flex flex-wrap w-[70%] gap-4 opacity-70">
-                                <p>Minimog</p>
-                                <p>Retrolie</p>
-                                <p>Brook</p>
+                                <p
+                                    onClick={() => {
+                                        fashionImgsTagsFunction("Dior");
+                                        setCondition2(false);
+                                        setCondition(true);
+                                    }}
+                                    className="cursor-pointer"
+                                >
+                                    Dior
+                                </p>
+                                <p
+                                    onClick={() => {
+                                        fashionImgsTagsFunction("Gucci");
+                                        setCondition2(false);
+                                        setCondition(true);
+                                    }}
+                                    className="cursor-pointer"
+                                >
+                                    Gucci
+                                </p>
+                                <p
+                                    onClick={() => {
+                                        fashionImgsTagsFunction("Brook");
+                                        setCondition2(false);
+                                        setCondition(true);
+                                    }}
+                                    className="cursor-pointer"
+                                >
+                                    Brook
+                                </p>
                                 <p>Learts</p>
                                 <p>Vagabond</p>
                                 <p>Abby</p>
@@ -145,7 +240,6 @@ const Fashion = () => {
                         <div className="flex flex-col gap-3">
                             <p>Tags:</p>
                             <div className="flex flex-wrap gap-3 opacity-70">
-                                <p>Fashion</p>
                                 <p>Hats</p>
                                 <p>Sandal</p>
                                 <p>Belt</p>
@@ -161,11 +255,13 @@ const Fashion = () => {
                     </div>
                     <div className="flex flex-col w-full">
                         <div className="flex items-center cursor-pointer mb-2">
-                            <div>Best Selling </div>
+                            <div onClick={() => setCondition(false)}>
+                                Best Selling{" "}
+                            </div>
                             <MdArrowDropDown />
                         </div>
                         <div className="flex flex-col items-center">
-                            <div className="flex flex-wrap justify-center w-full gap-5">
+                            <div className="flex flex-wrap justify-center w-fit gap-5">
                                 {itemsToRender.map(
                                     ({ img, text, price }, i) => (
                                         <div
@@ -175,7 +271,7 @@ const Fashion = () => {
                                             <img
                                                 src={img}
                                                 alt=""
-                                                className="h-[250px] w-[200px] sm:h-[300px] sm:w-[240px] xl:h-[270px] xl:w-[230px]"
+                                                className="h-[270px] w-[240px] sm:h-[300px] sm:w-[240px] xl:h-[270px] xl:w-[230px]"
                                             />
                                             <div>
                                                 <p className="font-semibold">
@@ -189,17 +285,73 @@ const Fashion = () => {
                                     )
                                 )}
                             </div>
-                            <div className="flex gap-2 mt-4">
-                                {numNext.map((num, i) => (
+                            {condition ? (
+                                <div className="flex gap-2 mt-4">
                                     <p
-                                        onClick={() => setNumClicked(i)}
-                                        key={i}
+                                        onClick={() => setNumClicked2(0)}
                                         className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
                                     >
-                                        {num}
+                                        1
                                     </p>
-                                ))}
-                            </div>
+                                    {filterNav.length > 6 && (
+                                        <p
+                                            onClick={() => setNumClicked2(1)}
+                                            className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                        >
+                                            2
+                                        </p>
+                                    )}
+                                    {filterNav.length > 12 && (
+                                        <p
+                                            onClick={() => setNumClicked2(2)}
+                                            className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                        >
+                                            3
+                                        </p>
+                                    )}
+                                    {filterNav.length > 18 && (
+                                        <p
+                                            onClick={() => setNumClicked2(3)}
+                                            className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                        >
+                                            4
+                                        </p>
+                                    )}
+                                </div>
+                            ) : (
+                                <div className="flex gap-2 mt-4">
+                                    <p
+                                        onClick={() => setNumClicked(0)}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        1
+                                    </p>
+                                    <p
+                                        onClick={() => setNumClicked(1)}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        2
+                                    </p>
+                                    <p
+                                        onClick={() => setNumClicked(2)}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        3
+                                    </p>
+                                    <p
+                                        onClick={() => setNumClicked(3)}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        4
+                                    </p>
+                                    <p
+                                        onClick={() => setNumClicked(4)}
+                                        className="h-[25px] flex justify-center items-center cursor-pointer w-[25px] rounded-[50%] bg-gray-200"
+                                    >
+                                        5
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
