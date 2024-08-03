@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdArrowDropDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { fashionImgs } from "./fashion";
+import { fashionImgs } from "./fashionProducts";
 
 const Fashion = () => {
     // Fashion
@@ -263,8 +263,9 @@ const Fashion = () => {
                         <div className="flex flex-col items-center">
                             <div className="flex flex-wrap justify-center w-fit gap-5">
                                 {itemsToRender.map(
-                                    ({ img, text, price }, i) => (
-                                        <div
+                                    ({ img, name, price }, i) => (
+                                        <Link
+                                            to={`/shop/${name}`}
                                             key={i}
                                             className="flex flex-col gap-2"
                                         >
@@ -275,13 +276,13 @@ const Fashion = () => {
                                             />
                                             <div>
                                                 <p className="font-semibold">
-                                                    {text}
+                                                    {name}
                                                 </p>
                                                 <p className="opacity-80">
                                                     ${price}.00
                                                 </p>
                                             </div>
-                                        </div>
+                                        </Link>
                                     )
                                 )}
                             </div>

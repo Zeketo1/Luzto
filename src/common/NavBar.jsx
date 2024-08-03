@@ -132,9 +132,42 @@ const NavBar = () => {
                             onClick={handleSignOut}
                         />
                         {profile.length === 0 ? (
-                            <div className="h-[35px] w-[35px] rounded-[50%] bg-blue-700 text-white flex items-center justify-center">
-                                <div className="text-[20px] -translate-y-[1px]">
-                                    {eProfile}
+                            <div className="flex gap-2 items-center">
+                                <div className="h-[35px] w-[35px] rounded-[50%] bg-blue-700 text-white flex items-center justify-center">
+                                    <div className="text-[20px] -translate-y-[1px]">
+                                        {eProfile}
+                                    </div>
+                                </div>
+                                <button
+                                    className="block sm:hidden font-bold text-lg"
+                                    onClick={() => setIsopen(!isOpen)}
+                                >
+                                    {isOpen ? <RiCloseFill /> : <CiMenuFries />}
+                                </button>
+                                <div
+                                    className={`absolute ${
+                                        isOpen ? "flex" : "hidden"
+                                    }  w-[12rem] top-20 flex flex-col justify-center mobile_nav_bar rounded-sm shadow-xl bg-white sm:hidden z-30 h-max right-0`}
+                                >
+                                    {activeOptions.map(({ text, route }, i) => (
+                                        <Link
+                                            to={route}
+                                            key={i}
+                                            onClick={() => setActiveOption(i)}
+                                            className={`text-center py-2 ${
+                                                i > 0 && "border-t-2"
+                                            }`}
+                                        >
+                                            {text}
+                                        </Link>
+                                    ))}
+                                    <div
+                                        onClick={handleSignOut}
+                                        className="cursor-pointer flex py-2 gap-1 items-center justify-center border-t-2 w-full"
+                                    >
+                                        <p>Sign Out</p>
+                                        <BiLogOut className="block" />
+                                    </div>
                                 </div>
                             </div>
                         ) : (
@@ -160,16 +193,19 @@ const NavBar = () => {
                                             to={route}
                                             key={i}
                                             onClick={() => setActiveOption(i)}
-                                            className={`text-center py-2 ${i > 0 && "border-t-2"}`}
+                                            className={`text-center py-2 ${
+                                                i > 0 && "border-t-2"
+                                            }`}
                                         >
                                             {text}
                                         </Link>
                                     ))}
-                                    <div onClick={handleSignOut} className="cursor-pointer flex py-2 gap-1 items-center justify-center border-t-2 w-full">
+                                    <div
+                                        onClick={handleSignOut}
+                                        className="cursor-pointer flex py-2 gap-1 items-center justify-center border-t-2 w-full"
+                                    >
                                         <p>Sign Out</p>
-                                        <BiLogOut
-                                            className="block"
-                                        />
+                                        <BiLogOut className="block" />
                                     </div>
                                 </div>
                             </div>

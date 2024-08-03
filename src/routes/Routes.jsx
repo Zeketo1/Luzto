@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Shop from "../pages/Shop";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import PrivateRoutes from "./PrivateRoutes";
 
 const PageRoutes = () => {
     const { footer } = useContext(LuzContext);
@@ -30,8 +31,6 @@ const PageRoutes = () => {
 
     console.log(userActive);
 
-    console.log(footer);
-
     return (
         <BrowserRouter>
             <NavBar />
@@ -41,6 +40,7 @@ const PageRoutes = () => {
                 {!userActive && <Route path="/signup" element={<SignUp />} />}
                 {!userActive && <Route path="/login" element={<Login />} />}
                 {userActive && <Route path="/shop" element={<Shop />} />}
+                <Route path="/shop/:id" element={<PrivateRoutes />} />
                 <Route
                     path="/stars"
                     element={<ShootingStarsAndStarsBackgroundDemo />}

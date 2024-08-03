@@ -1,14 +1,25 @@
 import { useState } from "react";
 import {
-    arrivalsMenFashion,
-    arrivalsWomenFashion,
-    arrivalsWomenAccessories,
-    arrivalsMenAccessories,
-    arrivalsDiscount,
+    arrivalFilter,
 } from "./products";
 import Button from "../../utils/Button";
+import { Link } from "react-router-dom";
 
 const Arrivals = () => {
+    const arrivalsMenFashion = arrivalFilter.filter((item) => item.type == "male");
+    const arrivalsWomenFashion = arrivalFilter.filter(
+        (item) => item.type == "female"
+    );
+    const arrivalsWomenAccessories = arrivalFilter.filter(
+        (item) => item.type == "arrivalsWomenAccessories"
+    );
+    const arrivalsMenAccessories = arrivalFilter.filter(
+        (item) => item.type == "arrivalsMenAccessories"
+    );
+    const arrivalsDiscount = arrivalFilter.filter(
+        (item) => item.type == "arrivalsDiscount"
+    );
+
     const categoryOptions = [
         { name: "Men's Fashion", details: arrivalsMenFashion },
         { name: "Women's Fashion", details: arrivalsWomenFashion },
@@ -21,6 +32,7 @@ const Arrivals = () => {
 
     const [categorySelector, setCategorySelector] =
         useState(arrivalsMenFashion);
+
 
     return (
         <>
@@ -67,14 +79,20 @@ const Arrivals = () => {
                                 },
                                 i
                             ) => (
-                                <div
+                                <Link
+                                    to={`/shop/${name}`}
                                     key={i}
                                     className="product__shadow px-4 py-4 bg-white w-[300px] flex flex-col gap-3 rounded-[10px]"
                                 >
-                                    <img
-                                        src={image}
+                                    <div
+                                        style={{
+                                            backgroundImage: `url(${image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                            backgroundRepeat: "no-repeat",
+                                        }}
                                         alt=""
-                                        className="h-[200px] w-[280px]"
+                                        className="h-[200px] w-[280px] rounded-[7px]"
                                     />
                                     <div>
                                         <div className="flex justify-between items-center">
@@ -106,7 +124,7 @@ const Arrivals = () => {
                                             {statues}
                                         </p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         )}
                     </div>
