@@ -20,7 +20,8 @@ const NavBar = () => {
         { text: "Home", route: "/" },
         { text: "Shop", route: "/shop" },
         { text: "Products", route: "/" },
-        { text: "Pages", route: "/" },
+        { text: "Reviews", route: "/reviews" },
+        { text: "Cart", route: "/cart" },
     ];
     const { logsStyle, notInAuth } = useContext(LuzContext);
 
@@ -45,6 +46,7 @@ const NavBar = () => {
             } else {
                 setUserActive(false);
             }
+            console.log(user)
         });
     }, [userActive, profile]);
 
@@ -54,7 +56,7 @@ const NavBar = () => {
     };
 
     // console.log(activeOption);
-    console.log(profile);
+    // console.log(profile);
 
     const [isOpen, setIsopen] = useState(false);
 

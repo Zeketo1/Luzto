@@ -1,9 +1,9 @@
-import ArrivalImg1 from "../../assets/Homepage/Arrivals/img1.png";
-import ArrivalImg2 from "../../assets/Homepage/Arrivals/img2.png";
-import ArrivalImg3 from "../../assets/Homepage/Arrivals/img3.png";
-import ArrivalImg4 from "../../assets/Homepage/Arrivals/img4.png";
-import ArrivalImg5 from "../../assets/Homepage/Arrivals/img5.png";
-import ArrivalImg6 from "../../assets/Homepage/Arrivals/img6.png";
+import ArrivalImg1 from "../../assets/Fashion/image11.jpg";
+import ArrivalImg2 from "../../assets/Fashion/image12.jpg";
+import ArrivalImg3 from "../../assets/Fashion/image14.jpg";
+import ArrivalImg4 from "../../assets/Fashion/image15.jpg";
+import ArrivalImg5 from "../../assets/Fashion/image20.jpg";
+import ArrivalImg6 from "../../assets/Fashion/image24.jpg";
 import ArrivalImg7 from "../../assets/Fashion/image19.jpg";
 import ArrivalImg8 from "../../assets/Fashion/image25.jpg";
 import ArrivalImg9 from "../../assets/Fashion/image29.jpg";
@@ -12,14 +12,13 @@ import ArrivalImg11 from "../../assets/Fashion/image35.jpg";
 import ArrivalImg12 from "../../assets/Fashion/image41.jpg";
 import Stars from "../../assets/Homepage/Arrivals/stars.png";
 
-
 export const arrivalFilter = [
     {
         image: ArrivalImg1,
-        name: "Long Dress",
+        name: "Pink Dress",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 8.0,
         color: "red",
         type: "female",
         statues: "Almost Sold Out",
@@ -27,10 +26,10 @@ export const arrivalFilter = [
     },
     {
         image: ArrivalImg2,
-        name: "Long Dress",
+        name: "Top and Shorts",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 12.0,
         color: `red`,
         type: "female",
         statues: "Almost Sold Out",
@@ -38,10 +37,10 @@ export const arrivalFilter = [
     },
     {
         image: ArrivalImg3,
-        name: "Long Dress",
+        name: "Brown Summer Wear",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 15.0,
         color: "red",
         type: "female",
         statues: "Almost Sold Out",
@@ -49,10 +48,10 @@ export const arrivalFilter = [
     },
     {
         image: ArrivalImg4,
-        name: "Long Dress",
+        name: "Black Joggers",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 12.0,
         color: "red",
         type: "female",
         statues: "Almost Sold Out",
@@ -60,10 +59,10 @@ export const arrivalFilter = [
     },
     {
         image: ArrivalImg5,
-        name: "Long Dress",
+        name: "Gucci Up and Down",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 15.0,
         color: "red",
         type: "female",
         statues: "Almost Sold Out",
@@ -71,10 +70,10 @@ export const arrivalFilter = [
     },
     {
         image: ArrivalImg6,
-        name: "Long Dress",
+        name: "Black Long-sleeve Shirt",
         star: Stars,
         review: "4.1k",
-        price: 95.5,
+        price: 16.0,
         color: "red",
         type: "female",
         statues: "Almost Sold Out",

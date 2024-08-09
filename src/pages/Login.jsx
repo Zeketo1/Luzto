@@ -35,9 +35,9 @@ const Login = () => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 console.log(user);
-                 setInterval(() => {
-                     navigate("/");
-                 }, 1000);
+                setInterval(() => {
+                    navigate("/");
+                }, 1000);
                 setUserActive(true);
                 console.log(userActive);
             } else {
@@ -65,7 +65,7 @@ const Login = () => {
     const [showPass, setShowPass] = useState(true);
 
     return (
-        <div className="lg:grid lg:grid-cols-2 w-full sm:h-[92.15vh] font-poppins">
+        <div className="lg:grid lg:grid-cols-2 w-full sm:h-[93.10vh] font-poppins">
             <div
                 ref={ref}
                 className="transition z-10 duration-1000 hidden lg:block bg-loginBg bg-cover bg-center bg-no-repeat bg-white"

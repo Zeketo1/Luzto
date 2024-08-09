@@ -1,12 +1,14 @@
-import { useState } from "react";
-import {
-    arrivalFilter,
-} from "./products";
+import { useContext, useState } from "react";
+import { arrivalFilter } from "./products";
 import Button from "../../utils/Button";
 import { Link } from "react-router-dom";
+import { LuzContext } from "../../Context/LuzContextProvider";
 
 const Arrivals = () => {
-    const arrivalsMenFashion = arrivalFilter.filter((item) => item.type == "male");
+    const { setInShop } = useContext(LuzContext);
+    const arrivalsMenFashion = arrivalFilter.filter(
+        (item) => item.type == "male"
+    );
     const arrivalsWomenFashion = arrivalFilter.filter(
         (item) => item.type == "female"
     );
@@ -32,7 +34,6 @@ const Arrivals = () => {
 
     const [categorySelector, setCategorySelector] =
         useState(arrivalsMenFashion);
-
 
     return (
         <>
@@ -83,6 +84,7 @@ const Arrivals = () => {
                                     to={`/shop/${name}`}
                                     key={i}
                                     className="product__shadow px-4 py-4 bg-white w-[300px] flex flex-col gap-3 rounded-[10px]"
+                                    onClick={() => setInShop(false)}
                                 >
                                     <div
                                         style={{

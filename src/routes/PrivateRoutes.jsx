@@ -7,6 +7,10 @@ import { CiCircleQuestion, CiDeliveryTruck } from "react-icons/ci";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { BsBox2 } from "react-icons/bs";
 import { CartContext } from "../Context/CartContextProvider";
+import payment from "../assets/payment.png";
+import Sample from "../common/Sample";
+import Subscribe from "../common/Subscribe";
+import Deals from "../components/home/Deals";
 
 const PrivateRoutes = () => {
     const { id } = useParams();
@@ -18,9 +22,9 @@ const PrivateRoutes = () => {
     useEffect(() => {
         inShop ? setItemFilter(fashionImgs) : setItemFilter(arrivalFilter);
 
-        console.log(typeof pageContent);
-        console.log(id);
-    }, [itemFilter]);
+        // console.log(typeof pageContent);
+        // console.log(id);
+    }, [inShop]);
 
     const pageContent = itemFilter.find((item) => item.name == id);
 
@@ -42,6 +46,7 @@ const PrivateRoutes = () => {
     }, []);
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
         const durationFun = (days) => {
             const date = new Date();
             date.setDate(date.getDate() + days);
@@ -52,27 +57,28 @@ const PrivateRoutes = () => {
         setDuration(durationFun(3));
     }, []);
 
+    // console.log(cartItems);
     console.log(cartItems);
 
     return (
         <>
-            <div className="flex justify-center font-poppins">
+            <div className="flex justify-center font-poppins mb-5">
                 <div className="flex flex-col sm:grid sm:grid-cols-2 p-5 lg:w-[70%] gap-10">
                     <div className="flex justify-center w-full h-full">
                         <img
-                            src={inShop ? pageContent.img : pageContent.image}
-                            alt=""
-                            className="max-h-[315px] sm:max-h-[600px]"
+                            src={inShop ? pageContent.img : pageContent?.image}
+                            alt={pageContent?.name || "Product image"}
+                            className="max-h-[315px] sm:max-h-[500px]"
                         />
                     </div>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 sm:gap-5">
                         <p className="opacity-80 text-[14px] sm:text-[16px]">
-                            {pageContent.Brand}
+                            {pageContent?.Brand}
                         </p>
                         <h1 className="font-semibold sm:text-[25px]">
-                            {pageContent.name}
+                            {pageContent?.name}
                         </h1>
-                        <p>${pageContent.price}</p>
+                        <p>${pageContent?.price}</p>
                         <div className="flex flex-col gap-2">
                             <p className="font-bold">
                                 Size:{" "}
@@ -102,9 +108,8 @@ const PrivateRoutes = () => {
                                     <span
                                         className="text-[17px] cursor-pointer"
                                         onClick={() => {
-                                            quantity < 1
-                                                ? setQuantity(0)
-                                                : setQuantity((q) => q - 1);
+                                            if (quantity > 1)
+                                                setQuantity((q) => q - 1);
                                         }}
                                     >
                                         -
@@ -121,7 +126,7 @@ const PrivateRoutes = () => {
                                 </div>
                             </div>
                             <button
-                                onClick={() => addToCart(pageContent)}
+                                onClick={() => addToCart(pageContent, quantity)}
                                 className="w-full sm:w-[50%] h-fit text-center border p-[6px] rounded-sm border-black"
                             >
                                 Add To Cart
@@ -158,13 +163,22 @@ const PrivateRoutes = () => {
                                     <span className="font-normal">
                                         On all orders over
                                     </span>{" "}
-                                    $75
+                                    $150
                                 </span>
                             </div>
+                        </div>
+                        <div className="flex flex-col shadow-xl items-center bg-[#F8F8F8] p-5 gap-3">
+                            <img src={payment} alt="" />
+                            <p className="font-semibold">
+                                Guarantee safe & secure checkout
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+            <Sample />
+            <Deals />
+            <Subscribe />
         </>
     );
 };

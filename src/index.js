@@ -64,7 +64,7 @@ export const sampleIcons = [
     {
         icon: sampleIcon3,
         title: "Free Shipping",
-        text: "Order over 150 $",
+        text: "Order over $150",
     },
     {
         icon: sampleIcon4,

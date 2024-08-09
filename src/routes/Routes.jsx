@@ -7,13 +7,14 @@ import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
 import { LuzContext } from "../Context/LuzContextProvider";
 import Footer from "../common/Footer";
-import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Shop from "../pages/Shop";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import PrivateRoutes from "./PrivateRoutes";
+import Cart from "../pages/Cart";
+import Reviews from "../pages/Reviews";
 
 const PageRoutes = () => {
     const { footer } = useContext(LuzContext);
@@ -41,10 +42,8 @@ const PageRoutes = () => {
                 {!userActive && <Route path="/login" element={<Login />} />}
                 {userActive && <Route path="/shop" element={<Shop />} />}
                 <Route path="/shop/:id" element={<PrivateRoutes />} />
-                <Route
-                    path="/stars"
-                    element={<ShootingStarsAndStarsBackgroundDemo />}
-                />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/reviews" element={<Reviews />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             {footer && <Footer />}

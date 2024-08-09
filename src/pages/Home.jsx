@@ -10,7 +10,7 @@ import { LuzContext } from "../Context/LuzContextProvider";
 import { FaArrowUp } from "react-icons/fa6";
 
 const Home = () => {
-    const { setLogsStyle, setNotInAuth, setInShop } = useContext(LuzContext);
+    const { setLogsStyle, setNotInAuth } = useContext(LuzContext);
 
     useEffect(() => {
         setLogsStyle(true);
@@ -33,7 +33,6 @@ const Home = () => {
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         window.scrollTo({ top: 0, behavior: "smooth" });
-        setInShop(false);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };

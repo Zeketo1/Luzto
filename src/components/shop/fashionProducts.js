@@ -14,7 +14,6 @@ import fashionImg13 from "../../assets/Fashion/image13.jpg";
 import fashionImg14 from "../../assets/Fashion/image14.jpg";
 import fashionImg15 from "../../assets/Fashion/image15.jpg";
 import fashionImg16 from "../../assets/Fashion/image16.jpg";
-import fashionImg17 from "../../assets/Fashion/image17.jpg";
 import fashionImg18 from "../../assets/Fashion/image18.jpg";
 import fashionImg19 from "../../assets/Fashion/image19.jpg";
 import fashionImg20 from "../../assets/Fashion/image20.jpg";

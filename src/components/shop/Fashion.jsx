@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdArrowDropDown, MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { fashionImgs } from "./fashionProducts";
+import { LuzContext } from "../../Context/LuzContextProvider";
 
 const Fashion = () => {
+    const {setInShop} = useContext(LuzContext)
     // Fashion
     const fashionImgsSlice1 = fashionImgs.slice(0, 8);
     const fashionImgsSlice2 = fashionImgs.slice(8, 16);
@@ -268,6 +270,7 @@ const Fashion = () => {
                                             to={`/shop/${name}`}
                                             key={i}
                                             className="flex flex-col gap-2"
+                                            onClick={() => setInShop(true)}
                                         >
                                             <img
                                                 src={img}

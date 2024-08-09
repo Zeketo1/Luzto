@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { googleIcon } from "..";
 import { ShootingStarsAndStarsBackgroundDemo } from "../components/home/Stars";
 import {
+    addUsername,
     auth,
     handleSignupForm,
     showToast,
@@ -57,6 +58,7 @@ const SignUp = () => {
             setNumber("");
             setConfirmPassword("");
             handleSignupForm(e, email, password);
+            addUsername(e, name, lastName, email);
         }
         console.log(name, lastName, email, password, confirmPassword);
     };
@@ -90,7 +92,7 @@ const SignUp = () => {
     }, [userActive]);
 
     return (
-        <div className="lg:grid lg:grid-cols-2 w-full sm:h-[92.15vh] font-poppins">
+        <div className="lg:grid lg:grid-cols-2 w-full sm:h-[93.10vh] font-poppins">
             <div
                 ref={ref2}
                 className="hidden lg:block h-full justify-center items-center transition duration-1000"
@@ -203,7 +205,7 @@ const SignUp = () => {
                     </p>
                     <div
                         onClick={handleGooogle}
-                        className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-white rounded-md border-[#8080805c] border"
+                        className="flex cursor-pointer items-center gap-2 py-2 px-4 bg-transparent text-white rounded-md border-[#8080805c] border"
                     >
                         <img src={googleIcon} alt="" className="h-[20px]" />
                         <p className="text-[13px] font-semibold">
