@@ -29,9 +29,7 @@ const PageRoutes = () => {
             }
         });
     }, [userActive]);
-
-    console.log(userActive);
-
+    
     return (
         <BrowserRouter>
             <NavBar />
@@ -43,7 +41,7 @@ const PageRoutes = () => {
                 {userActive && <Route path="/shop" element={<Shop />} />}
                 <Route path="/shop/:id" element={<PrivateRoutes />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/reviews" element={<Reviews />} />
+                {userActive && <Route path="/reviews" element={<Reviews />} />}
                 <Route path="*" element={<NotFound />} />
             </Routes>
             {footer && <Footer />}

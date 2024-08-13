@@ -107,3 +107,7 @@
 .scroll_bar_hidden::-webkit-scrollbar {
   display: none;
 }
+
+.border__radius__review {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 75% 100%, 7% 100%, 7% 15%);
+}

@@ -19,7 +19,6 @@ const NavBar = () => {
     const activeOptions = [
         { text: "Home", route: "/" },
         { text: "Shop", route: "/shop" },
-        { text: "Products", route: "/" },
         { text: "Reviews", route: "/reviews" },
         { text: "Cart", route: "/cart" },
     ];
@@ -46,7 +45,6 @@ const NavBar = () => {
             } else {
                 setUserActive(false);
             }
-            console.log(user)
         });
     }, [userActive, profile]);
 
@@ -55,15 +53,12 @@ const NavBar = () => {
         window.scrollTo({ top: pos, behavior: "smooth" });
     };
 
-    // console.log(activeOption);
-    // console.log(profile);
-
     const [isOpen, setIsopen] = useState(false);
 
     return (
         <>
             <div
-                className={`font-poppins z-[100] flex justify-between items-center px-3 ${
+                className={`font-poppins sm:h-[6.95vh] z-[100] flex justify-between items-center px-3 ${
                     logsStyle ? `glass` : `bg-white`
                 } py-1 sticky top-0 right-0`}
             >
@@ -130,7 +125,7 @@ const NavBar = () => {
                 ) : (
                     <div className="flex gap-5 items-center">
                         <BiLogOut
-                            className="hidden sm:block"
+                            className="hidden sm:block cursor-pointer"
                             onClick={handleSignOut}
                         />
                         {profile.length === 0 ? (

@@ -32,20 +32,24 @@ const Login = () => {
     const navigate = useNavigate("/");
 
     useEffect(() => {
-        onAuthStateChanged(auth, async (user) => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
             if (user) {
                 console.log(user);
-                setInterval(() => {
+                const intervalId = setInterval(() => {
                     navigate("/");
                 }, 1000);
                 setUserActive(true);
-                console.log(userActive);
+
+                // Cleanup function for clearing the interval
+                return () => clearInterval(intervalId);
             } else {
                 setUserActive(false);
-                console.log(userActive);
             }
         });
-    }, [userActive]);
+
+        // Cleanup function for the onAuthStateChanged listener
+        return () => unsubscribe();
+    }, [userActive, navigate]);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -55,7 +59,6 @@ const Login = () => {
         setPassword("");
         e.preventDefault();
         handleLoginForm(e, email, password);
-        console.log(email, password);
     };
 
     const handleGooogle = async () => {

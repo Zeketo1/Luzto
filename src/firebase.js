@@ -16,6 +16,7 @@ import {
     signInWithPopup,
     onAuthStateChanged,
 } from "firebase/auth";
+import { fashionImgs } from "./components/shop/fashionProducts";
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_API_KEY,
@@ -35,29 +36,37 @@ const db = getFirestore();
 
 // init collection
 const colUser = collection(db, "Users");
+const colProducts = collection(db, "Products");
+const colComments = collection(db, "Comments");
 
 // get realtime collection data
 let usernames = [];
+let fireImgs;
 onSnapshot(colUser, (snapshot) => {
     snapshot.docs.forEach((doc) => {
         usernames.push({ ...doc.data(), id: doc.id });
     });
-    console.log(usernames);
 });
 
+// onSnapshot(colProducts, (snapshot) => {
+//     snapshot.docs.forEach((doc) => (fireImgs = doc.data()));
+//     console.log(fireImgs);
+// });
+
 let emailAuthName;
+
 // Firestore
-export const addUsername = async (e, fisrtname, lastname, email) => {
+const addUsername = async (e, firstname, lastname, email) => {
     e.preventDefault();
     addDoc(colUser, {
-        fisrtname,
+        firstname,
         lastname,
         email,
     }).then(() => {
         console.log("Username added");
     });
 
-    emailAuthName = `${fisrtname} ${lastname}`;
+    emailAuthName = `${firstname} ${lastname}`;
 };
 
 // Toastify
@@ -82,6 +91,7 @@ export const showToast = (message, type) => {
 };
 
 // Authentication
+// SignUp
 const handleSignupForm = async (e, email, password) => {
     e.preventDefault();
     try {
@@ -90,17 +100,17 @@ const handleSignupForm = async (e, email, password) => {
             email,
             password
         );
-        console.log("User created:", userCredential.user);
         showToast(
             `Success! You have been signed in. Welcome, ${emailAuthName}!`,
             "success"
         );
     } catch (error) {
-        console.error("Error signing up:", error.message);
         showToast(`Action failed: ${error.message}`, "error");
     }
 };
 
+// Login
+let loginUserEmail;
 const handleLoginForm = async (e, email, password) => {
     e.preventDefault();
     try {
@@ -109,19 +119,24 @@ const handleLoginForm = async (e, email, password) => {
             email,
             password
         );
-        const loginUsername = usernames.find((username) => username.email === userCredential.user.email);
-        console.log("User signed in:", userCredential.user);
-        console.log("User signed in:", userCredential.user.uid);
+        const loginUsername = usernames.find(
+            (username) => username.email === userCredential.user.email
+        );
+
+        loginUserEmail = userCredential.user.email;
+
+        // console.log("User signed in:", userCredential.user);
+        // console.log("User signed in:", userCredential.user.uid);
         showToast(
             `Success! Welcome back, ${loginUsername.firstname}!`,
             "success"
         );
     } catch (error) {
-        console.error("Error signing in:", error.message);
         showToast(`Action failed: ${error.message}`, "error");
     }
 };
 
+// SignUp with Google
 const signupWithGoogle = () => {
     let username;
 
@@ -129,7 +144,6 @@ const signupWithGoogle = () => {
         if (user) {
             username = user.displayName;
         }
-        console.log(user);
     });
 
     const provider = new GoogleAuthProvider();
@@ -139,15 +153,26 @@ const signupWithGoogle = () => {
             showToast(`Success! Welcome back ${username}!`, "success");
         })
         .catch((error) => {
-            console.error("Error signing in with Google:", error.message);
             showToast(`Google sign-in failed: ${error.message}`, "error");
         });
 };
 
 const logout = () => {
     signOut(auth)
-        .then(() => console.log("User signed out"))
-        .catch((error) => console.error("Error signing out:", error.message));
+        .then(() => showToast(`User signed out!`, "success"))
+        .catch((error) =>
+            showToast(`Action failed: ${error.message}`, "error")
+        );
 };
 
-export { handleSignupForm, handleLoginForm, signupWithGoogle, auth, logout };
+export {
+    handleSignupForm,
+    handleLoginForm,
+    signupWithGoogle,
+    auth,
+    colComments,
+    logout,
+    fireImgs,
+    addUsername,
+    usernames,
+};

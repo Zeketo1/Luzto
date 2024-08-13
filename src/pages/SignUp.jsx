@@ -58,9 +58,10 @@ const SignUp = () => {
             setNumber("");
             setConfirmPassword("");
             handleSignupForm(e, email, password);
-            addUsername(e, name, lastName, email);
+            if (name !== "") {
+                addUsername(e, name, lastName, email);
+            }
         }
-        console.log(name, lastName, email, password, confirmPassword);
     };
 
     const handleGooogle = async () => {
@@ -78,15 +79,12 @@ const SignUp = () => {
     useEffect(() => {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
-                console.log(user);
                 setInterval(() => {
                     navigate("/");
                 }, 1000);
                 setUserActive(true);
-                console.log(userActive);
             } else {
                 setUserActive(false);
-                console.log(userActive);
             }
         });
     }, [userActive]);

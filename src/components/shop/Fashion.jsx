@@ -5,7 +5,7 @@ import { fashionImgs } from "./fashionProducts";
 import { LuzContext } from "../../Context/LuzContextProvider";
 
 const Fashion = () => {
-    const {setInShop} = useContext(LuzContext)
+    const { setInShop } = useContext(LuzContext);
     // Fashion
     const fashionImgsSlice1 = fashionImgs.slice(0, 8);
     const fashionImgsSlice2 = fashionImgs.slice(8, 16);
@@ -58,11 +58,8 @@ const Fashion = () => {
 
     const fashionImgsTagsFunction = (tag) => {
         const answer = fashionImgs.filter((item) => item.Brand === tag);
-        console.log(tag);
         setFashionImgsTags(answer);
     };
-
-    // console.log(fashionImgsTags);
 
     // NavBTN
 
@@ -82,8 +79,6 @@ const Fashion = () => {
     const itemsToRender = condition
         ? filterRender
         : mapFashionOption[numClicked];
-
-    console.log(filterNav.length);
 
     return (
         <>

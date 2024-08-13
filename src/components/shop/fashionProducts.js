@@ -77,6 +77,7 @@ export const fashionImgs = [
         price: 8.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
     },
     {
         img: fashionImg2,
@@ -84,6 +85,7 @@ export const fashionImgs = [
         price: 17.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -92,6 +94,7 @@ export const fashionImgs = [
         price: 106.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -100,6 +103,7 @@ export const fashionImgs = [
         price: 25.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -108,6 +112,7 @@ export const fashionImgs = [
         price: 20.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -116,6 +121,7 @@ export const fashionImgs = [
         price: 11.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -124,6 +130,7 @@ export const fashionImgs = [
         price: 18.0,
         all: "Fashion",
         type: "Glasses",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -132,6 +139,7 @@ export const fashionImgs = [
         price: 22.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -140,6 +148,7 @@ export const fashionImgs = [
         price: 20.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -148,6 +157,7 @@ export const fashionImgs = [
         price: 20.0,
         all: "Fashion",
         type: "Shoe",
+        category: "shoe",
         Brand: "Brook",
     },
     {
@@ -156,6 +166,7 @@ export const fashionImgs = [
         price: 8.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -164,6 +175,7 @@ export const fashionImgs = [
         price: 12.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -172,6 +184,7 @@ export const fashionImgs = [
         price: 16.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Brook",
     },
     {
@@ -180,6 +193,7 @@ export const fashionImgs = [
         price: 15.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -188,14 +202,16 @@ export const fashionImgs = [
         price: 12.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
         img: fashionImg16,
-        name: "Dotted Black Shoe",
+        name: "Strip Black Shoe",
         price: 11.0,
         all: "Fashion",
         type: "Shoe",
+        category: "shoe",
         Brand: "Brook",
     },
     {
@@ -204,6 +220,7 @@ export const fashionImgs = [
         price: 22.0,
         all: "Fashion",
         type: "Clothes",
+        category: "shoe",
         Brand: "Brook",
     },
     {
@@ -212,6 +229,7 @@ export const fashionImgs = [
         price: 20.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -220,6 +238,7 @@ export const fashionImgs = [
         price: 15.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -228,6 +247,7 @@ export const fashionImgs = [
         price: 8.0,
         all: "Fashion",
         type: "Glasses",
+        category: "glasses",
         Brand: "Brook",
     },
     {
@@ -236,6 +256,7 @@ export const fashionImgs = [
         price: 18.0,
         all: "Fashion",
         type: "Clothes",
+        category: "glasses",
         Brand: "Brook",
     },
     {
@@ -244,6 +265,7 @@ export const fashionImgs = [
         price: 17.0,
         all: "Fashion",
         type: "Clothes",
+        category: "glasses",
         Brand: "Brook",
     },
     {
@@ -252,6 +274,7 @@ export const fashionImgs = [
         price: 16.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -260,6 +283,7 @@ export const fashionImgs = [
         price: 125.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -268,6 +292,7 @@ export const fashionImgs = [
         price: 20.0,
         all: "Fashion",
         type: "Shoe",
+        category: "shoe",
         Brand: "Brook",
     },
     {
@@ -276,6 +301,7 @@ export const fashionImgs = [
         price: 11.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "D & G",
     },
     {
@@ -284,6 +310,7 @@ export const fashionImgs = [
         price: 32.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -292,6 +319,7 @@ export const fashionImgs = [
         price: 13.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -300,6 +328,7 @@ export const fashionImgs = [
         price: 16.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -308,6 +337,7 @@ export const fashionImgs = [
         price: 68.0,
         all: "Dress",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -316,6 +346,7 @@ export const fashionImgs = [
         price: 53.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -324,6 +355,7 @@ export const fashionImgs = [
         price: 77.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -332,6 +364,7 @@ export const fashionImgs = [
         price: 16.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Brook",
     },
     {
@@ -340,6 +373,7 @@ export const fashionImgs = [
         price: 125.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -348,6 +382,7 @@ export const fashionImgs = [
         price: 73.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -356,6 +391,7 @@ export const fashionImgs = [
         price: 537.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -364,6 +400,7 @@ export const fashionImgs = [
         price: 59.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -372,6 +409,7 @@ export const fashionImgs = [
         price: 213.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Brook",
     },
     {
@@ -380,6 +418,7 @@ export const fashionImgs = [
         price: 71.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -388,6 +427,7 @@ export const fashionImgs = [
         price: 51.0,
         all: "Fashion",
         type: "Clothes",
+        category: "male",
         Brand: "Brook",
     },
     {
@@ -396,6 +436,7 @@ export const fashionImgs = [
         price: 173.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -404,6 +445,7 @@ export const fashionImgs = [
         price: 77.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -412,6 +454,7 @@ export const fashionImgs = [
         price: 160.0,
         all: "Fashion",
         type: "Bag",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -420,6 +463,7 @@ export const fashionImgs = [
         price: 54.0,
         all: "Fashion",
         type: "Perfume",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -428,6 +472,7 @@ export const fashionImgs = [
         price: 273.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -436,6 +481,7 @@ export const fashionImgs = [
         price: 207.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -444,6 +490,7 @@ export const fashionImgs = [
         price: 259.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -452,6 +499,7 @@ export const fashionImgs = [
         price: 23.0,
         all: "Fashion",
         type: "Clothes",
+        category: "hat",
         Brand: "Dior",
     },
     {
@@ -460,6 +508,7 @@ export const fashionImgs = [
         price: 11.0,
         all: "Fashion",
         type: "Glasses",
+        category: "glasses",
         Brand: "Dior",
     },
     {
@@ -468,6 +517,7 @@ export const fashionImgs = [
         price: 153.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Dior",
     },
     {
@@ -476,6 +526,7 @@ export const fashionImgs = [
         price: 77.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Dior",
     },
     {
@@ -484,6 +535,7 @@ export const fashionImgs = [
         price: 125.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -492,6 +544,7 @@ export const fashionImgs = [
         price: 73.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Brook",
     },
     {
@@ -500,6 +553,7 @@ export const fashionImgs = [
         price: 537.0,
         all: "Fashion",
         type: "Clothes",
+        category: "hat",
         Brand: "Dior",
     },
     {
@@ -508,6 +562,7 @@ export const fashionImgs = [
         price: 345.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Dior",
     },
     {
@@ -516,6 +571,7 @@ export const fashionImgs = [
         price: 13.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -524,6 +580,7 @@ export const fashionImgs = [
         price: 71.0,
         all: "Fashion",
         type: "Clothes",
+        category: "female",
         Brand: "Dior",
     },
     {
@@ -532,6 +589,7 @@ export const fashionImgs = [
         price: 51.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Dior",
     },
     {
@@ -540,6 +598,7 @@ export const fashionImgs = [
         price: 320.0,
         all: "Fashion",
         type: "Clothes",
+        category: "watch",
         Brand: "Gucci",
     },
     {
@@ -548,6 +607,7 @@ export const fashionImgs = [
         price: 210.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Gucci",
     },
     {
@@ -556,6 +616,7 @@ export const fashionImgs = [
         price: 53.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -564,6 +625,7 @@ export const fashionImgs = [
         price: 77.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -572,6 +634,7 @@ export const fashionImgs = [
         price: 120.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -580,6 +643,7 @@ export const fashionImgs = [
         price: 73.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -588,6 +652,7 @@ export const fashionImgs = [
         price: 470.0,
         all: "Fashion",
         type: "Shoe",
+        category: "shoe",
         Brand: "Gucci",
     },
     {
@@ -596,6 +661,7 @@ export const fashionImgs = [
         price: 45.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -604,6 +670,7 @@ export const fashionImgs = [
         price: 53.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -612,6 +679,7 @@ export const fashionImgs = [
         price: 171.0,
         all: "Fashion",
         type: "Shoe",
+        category: "shoe",
         Brand: "Gucci",
     },
     {
@@ -620,6 +688,7 @@ export const fashionImgs = [
         price: 55.0,
         all: "Fashion",
         type: "Perfume",
+        category: "perfume",
         Brand: "Gucci",
     },
     {
@@ -628,6 +697,7 @@ export const fashionImgs = [
         price: 300.0,
         all: "Fashion",
         type: "Bag",
+        category: "bag",
         Brand: "Gucci",
     },
     {
@@ -636,6 +706,7 @@ export const fashionImgs = [
         price: 152.0,
         all: "Fashion",
         type: "Clothes",
+        category: "hat",
         Brand: "Gucci",
     },
 ];
