@@ -29,27 +29,22 @@ const Login = () => {
 
     const [userActive, setUserActive] = useState(false);
 
-    const navigate = useNavigate("/");
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log(user);
-                const intervalId = setInterval(() => {
-                    navigate("/");
-                }, 1000);
+                navigate("/");  // Redirect to the homepage once
                 setUserActive(true);
-
-                // Cleanup function for clearing the interval
-                return () => clearInterval(intervalId);
             } else {
                 setUserActive(false);
             }
         });
-
+    
         // Cleanup function for the onAuthStateChanged listener
         return () => unsubscribe();
-    }, [userActive, navigate]);
+    }, [navigate, setUserActive]);
+    
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

@@ -11,7 +11,6 @@ const Cart = () => {
         reduceProductQuantity,
         addProductQuantity,
     } = useContext(CartContext);
-    console.log(cartItems);
     return (
         <>
             <div className="font-poppins">

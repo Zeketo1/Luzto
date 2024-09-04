@@ -56,8 +56,7 @@ onSnapshot(colUser, (snapshot) => {
 let emailAuthName;
 
 // Firestore
-const addUsername = async (e, firstname, lastname, email) => {
-    e.preventDefault();
+const addUsername = async (firstname, lastname, email) => {
     addDoc(colUser, {
         firstname,
         lastname,
@@ -139,10 +138,13 @@ const handleLoginForm = async (e, email, password) => {
 // SignUp with Google
 const signupWithGoogle = () => {
     let username;
+    let userEmail;
 
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             username = user.displayName;
+            userEmail = user.email;
+            addUsername(username, null, userEmail)
         }
     });
 

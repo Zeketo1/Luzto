@@ -22,8 +22,6 @@ const PrivateRoutes = () => {
     useEffect(() => {
         inShop ? setItemFilter(fashionImgs) : setItemFilter(arrivalFilter);
 
-        // console.log(typeof pageContent);
-        // console.log(id);
     }, [inShop]);
 
     const pageContent = itemFilter.find((item) => item.name == id);
@@ -56,9 +54,6 @@ const PrivateRoutes = () => {
 
         setDuration(durationFun(3));
     }, []);
-
-    // console.log(cartItems);
-    console.log(cartItems);
 
     return (
         <>

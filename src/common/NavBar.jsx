@@ -58,7 +58,7 @@ const NavBar = () => {
     return (
         <>
             <div
-                className={`font-poppins sm:h-[6.95vh] z-[100] flex justify-between items-center px-3 ${
+                className={`font-poppins z-[100] flex justify-between items-center px-3 ${
                     logsStyle ? `glass` : `bg-white`
                 } py-1 sticky top-0 right-0`}
             >
