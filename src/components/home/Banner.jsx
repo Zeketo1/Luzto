@@ -16,7 +16,7 @@ const Banner = () => (
                 initial={{ rotate: -15, x: -100 }}
                 animate={{ rotate: 0, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="h-[320px] w-full sm:h-[550px] rounded-[10px] sm:w-full md:h-[600px] md:w-[400px]"
+                className="h-[320px] w-full sm:h-[550px] rounded-[10px] sm:w-full md:h-[600px] md:w-[400px] object-cover"
                 src={BannerImg1}
                 alt=""
             />
@@ -29,7 +29,7 @@ const Banner = () => (
                     className="rounded-[10px] bg-cover bg-center bg-no-repeat block sm:hidden w-full h-[50%] bg-phoneBg"
                 ></motion.div>
                 <motion.img
-                    className="hidden sm:block"
+                    className="hidden sm:block object-cover"
                     initial={{ scale: 0.5 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.7 }}
@@ -49,7 +49,7 @@ const Banner = () => (
                     initial={{ scale: 0.5 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.7 }}
-                    className="hidden sm:block"
+                    className="hidden sm:block object-cover"
                     src={BannerImg4}
                     alt=""
                 />
@@ -58,7 +58,7 @@ const Banner = () => (
                 initial={{ rotate: 15, x: 100 }}
                 animate={{ rotate: 0, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="hidden dude md:h-[600px] md:w-[400px] rounded-[10px]"
+                className="hidden dude md:h-[600px] md:w-[400px] rounded-[10px] object-cover"
                 src={BannerImg2}
                 alt=""
             />
