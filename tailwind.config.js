@@ -5,8 +5,8 @@ export default {
         extend: {
             backgroundImage: {
                 phoneBg: "url('./src/assets/Homepage/Arrivals/img6.png')",
-                signupBg: "url('./src/assets/Signup/testing1.jpg')",
-                loginBg: "url('./src/assets/Signup/testing3.jpg')",
+                signupBg: "url('/testing1.jpg')",
+                loginBg: "url('/testing3.jpg')",
                 cartBg: "url('./src/assets/Cart/cartBg.jpg')",
             },
             fontFamily: {
