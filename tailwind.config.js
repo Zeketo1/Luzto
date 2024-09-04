@@ -4,10 +4,10 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                phoneBg: "url('./src/assets/Homepage/Arrivals/img6.png')",
+                phoneBg: "url('/img6.png')",
                 signupBg: "url('/testing1.jpg')",
                 loginBg: "url('/testing3.jpg')",
-                cartBg: "url('./src/assets/Cart/cartBg.jpg')",
+                cartBg: "url('/cartBg.jpg')",
             },
             fontFamily: {
                 poppins: "Poppins",

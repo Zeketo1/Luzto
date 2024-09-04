@@ -68,6 +68,11 @@ const PrivateRoutes = () => {
     });
   }, [userActive]);
 
+  const handleCart = () => {
+    addToCart(pageContent, quantity);
+    showToast("Item added", "success");
+  };
+
   return (
     <>
       <div className="flex justify-center font-poppins mb-5">
@@ -129,7 +134,7 @@ const PrivateRoutes = () => {
               <button
                 onClick={() => {
                   userActive
-                    ? addToCart(pageContent, quantity)
+                    ? handleCart()
                     : showToast("Sign In Before Accessing Cart", "error");
                 }}
                 className="w-full sm:w-[50%] h-fit text-center border p-[6px] rounded-sm border-black"
