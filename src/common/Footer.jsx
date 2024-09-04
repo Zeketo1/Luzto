@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <p className="text-center text-[13px] font-semibold">
-                    Copyright &copy; 2022 Xpro . All Rights Reseved.
+                    Copyright &copy;Ikoro Francis 2024 .
                 </p>
             </div>
         </>
