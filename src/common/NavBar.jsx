@@ -62,7 +62,7 @@ const NavBar = () => {
                     logsStyle ? `glass` : `bg-white`
                 } py-1 sticky top-0 right-0`}
             >
-                <h1 className="text-[30px] font-serif text-black">Luzto</h1>
+                <Link to="/" className="text-[30px] font-serif text-black">Luzto</h1>
                 {!notInAuth &&
                     (userActive ? (
                         <div className="flex min-[360px]:hidden sm:flex sm:gap-4 md:gap-8 ">
