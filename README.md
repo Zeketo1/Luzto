@@ -1,8 +1,43 @@
-# React + Vite
+# Luzto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Luzto** is a stylish e-commerce platform built for selling clothes online. With a focus on a clean and modern user interface, Luzto provides a seamless shopping experience. Users can sign up and log in securely through Firebase authentication and easily filter products by price and brand to find the perfect outfit.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **User Authentication:** Secure signup and login powered by Firebase.
+- **Product Filtering:** Filter clothes by price and brand to quickly find what you need.
+- **Clean & Modern UI:** Designed for an intuitive and visually appealing user experience.
+- **Responsive Design:** Optimized for various devices, ensuring a smooth experience on mobile, tablet, and desktop.
+
+## Technologies
+- **Frontend:** [React]
+- **Authentication:** Firebase Authentication
+- **Styling:** CSS framework (Tailwind CSS)
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (vXX.X.X or later)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- A Firebase account for authentication configuration
+
+### Steps
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/luzto.git
+   cd luzto
+
+**License**
+This project is licensed under the MIT License.
+
+**Contact**
+For questions or feedback, please reach out:
+
+Your Name – ikorofrancis24@gmail.com
+GitHub Repository: [https://github.com/yourusername/luzto](https://github.com/Zeketo1/Luzto)
