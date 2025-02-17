@@ -5,9 +5,8 @@
 ## Table of Contents
 - [Features](#features)
 - [Technologies](#technologies)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
+- [Prerequisites](#prerequisites)
+- [Installation](#steps)
 - [License](#license)
 - [Contact](#contact)
 
