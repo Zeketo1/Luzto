@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "caniuse-lite": "^1.0.30001702",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",

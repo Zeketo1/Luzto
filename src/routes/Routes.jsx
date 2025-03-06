@@ -38,10 +38,10 @@ const PageRoutes = () => {
                 <Route path="/" element={<Home />} />
                 {!userActive && <Route path="/signup" element={<SignUp />} />}
                 {!userActive && <Route path="/login" element={<Login />} />}
-                {userActive && <Route path="/shop" element={<Shop />} />}
+                <Route path="/shop" element={<Shop />} />
                 <Route path="/shop/:id" element={<PrivateRoutes />} />
                 <Route path="/cart" element={<Cart />} />
-                {userActive && <Route path="/reviews" element={<Reviews />} />}
+                <Route path="/reviews" element={<Reviews />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             {footer && <Footer />}
